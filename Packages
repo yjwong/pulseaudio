@@ -6,10 +6,10 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Installed-Size: 539
 Depends: libpulse0 (= 1:14.2.99-1), libpulse-mainloop-glib0 (= 1:14.2.99-1), libglib2.0-dev
 Filename: ./libpulse-dev_14.2.99-1_amd64.deb
-Size: 153704
-MD5sum: a106c230396534ee2227c982a07c6008
-SHA1: c21f27c59c07502cabc89e19c1c2db2d7087737d
-SHA256: 2848e15887a85d8e81233448a50867925c97af23cf0ea4e1f4c2758c1788b662
+Size: 153700
+MD5sum: 1653593735506bb857921de0bd80af1e
+SHA1: 96a3d3e045318f8d5397714ffb19fa013f93498d
+SHA256: 6fa03f09a23b9adffc801035a39bbbcae457dacadb4dafb38936660ddb66f25c
 Section: libdevel
 Priority: optional
 Multi-Arch: same
@@ -31,10 +31,10 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Installed-Size: 132
 Depends: libc6 (>= 2.4), libglib2.0-0 (>= 2.16.0), libpulse0 (= 1:14.2.99-1)
 Filename: ./libpulse-mainloop-glib0_14.2.99-1_amd64.deb
-Size: 91664
-MD5sum: 6b24646c6172027383c051b4f7fcf4e3
-SHA1: c48be29b51ce8f7bd22a657d66517600959eecd4
-SHA256: ca7e1375976ca9d3e1bc4b6a5794d79f05eed713b6dd83577ce2aa772b1ffae5
+Size: 91660
+MD5sum: b88eeff44c72121e1f4fc39e92139f3a
+SHA1: 2547c250ef42cd19f4d4d880a5eb538f771beff0
+SHA256: 5a22d524acf135a86b37acd14bbc7b1884da8a6c2cb8baefaeebc4697cfb1d82
 Section: sound
 Priority: optional
 Multi-Arch: same
@@ -59,10 +59,10 @@ Installed-Size: 1031
 Depends: libapparmor1 (>= 2.7.0~beta1+bzr1772), libasyncns0 (>= 0.3), libc6 (>= 2.29), libdbus-1-3 (>= 1.9.14), libsndfile1 (>= 1.0.20), libsystemd0, libwrap0 (>= 7.6-4~), libxcb1
 Suggests: pulseaudio
 Filename: ./libpulse0_14.2.99-1_amd64.deb
-Size: 337704
-MD5sum: 9dcc5ce993fc3b24856df366175b5fda
-SHA1: 5a7bcab9c36bdbd73676cca7dce983bd80868343
-SHA256: e7c4e90498b1cc2df89a5252ab5d8a98a8322adaa0fa939963d099192c116926
+Size: 337696
+MD5sum: e882cc00657b7d960bec766246478dc5
+SHA1: 53921e1a500c7490a5cca63e44079d98488ea9c1
+SHA256: 2107b8107b2204459ae10d62c88312877b9146cb9b94633d77cf8f5d217ae9be
 Section: libs
 Priority: optional
 Multi-Arch: same
@@ -84,10 +84,10 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Installed-Size: 162
 Depends: libc6 (>= 2.4), libpulse0 (= 1:14.2.99-1)
 Filename: ./libpulsedsp_14.2.99-1_amd64.deb
-Size: 101736
-MD5sum: ab1e7fbc60bf57add6ccdc8b4add64a3
-SHA1: d34c83e32c3a4f80e82ae42e5b3408510f914372
-SHA256: 85aa418397c1d6831aa03db85b008f903bde35e13fe6385a60505b82e4ea1fa6
+Size: 101732
+MD5sum: b11ee217edfc3431f33e8d13f32226a0
+SHA1: 6d6291ea3b8518de207022f02b851ab0fb989246
+SHA256: d2ec042ce3325f2c9e0aba37049e1c3359720d9b2faa83048b749905f6eadc5a
 Section: sound
 Priority: optional
 Multi-Arch: same
@@ -111,10 +111,10 @@ Depends: libasound2 (>= 1.2.1.1), libc6 (>= 2.29), libcap2 (>= 1:2.10), libdbus-
 Recommends: rtkit, default-logind | logind, dbus-user-session
 Suggests: udev, pavumeter, pavucontrol, paprefs, ubuntu-sounds
 Filename: ./pulseaudio_14.2.99-1_amd64.deb
-Size: 1237284
-MD5sum: b0ce75e8edc536768a06c18068f14227
-SHA1: 2d1ef2c2d5b5d2bb8990d149acb33585bec50fbc
-SHA256: 6b20f60b77c6226a3c1e6c763410e0a3d324aa1412dc6f4eaa020015989761e6
+Size: 1237000
+MD5sum: 44309231af9972fecfb02881337b5a3d
+SHA1: 4dfd2218c44c645973096742e34310546f89b8af
+SHA256: 8c8b99b0ac458278c10b86a5b2464c24fafe3ae885b8cc4d8b0566e783a2753c
 Section: sound
 Priority: optional
 Multi-Arch: foreign
@@ -156,9 +156,9 @@ Installed-Size: 212
 Depends: libc6 (>= 2.29), libdbus-1-3 (>= 1.9.14), libfftw3-single3 (>= 3.3.5), libpulse0 (= 1:14.2.99-1), pulseaudio (= 1:14.2.99-1), python3, python3-pyqt5, python3-dbus.mainloop.pyqt5, python3-dbus
 Filename: ./pulseaudio-equalizer_14.2.99-1_amd64.deb
 Size: 114072
-MD5sum: 029608c4e5e48a57ab640d49981ac727
-SHA1: 4b5073aae9384d8bae1bfd80e68e3e67907b24a3
-SHA256: f23cf2844c2df2ff0af00aa91e95c54892db87665fb437bd8df3c6090e1860a9
+MD5sum: 95a4b75c595a58901e2fcec858668318
+SHA1: dc01ca305154b807a90609811c29238817b1294d
+SHA256: b0554996fcb9aae1ddb5b51ce506fac003ba3d9f8d836763ac38c9b0f3b8adc4
 Section: sound
 Priority: optional
 Homepage: http://www.pulseaudio.org
@@ -178,13 +178,13 @@ Source: pulseaudio
 Version: 1:14.2.99-1
 Architecture: amd64
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Installed-Size: 365
+Installed-Size: 373
 Depends: libc6 (>= 2.14), libdbus-1-3 (>= 1.9.14), libpulse0 (= 1:14.2.99-1), libsbc1, pulseaudio (= 1:14.2.99-1), bluez (>= 5.23)
 Filename: ./pulseaudio-module-bluetooth_14.2.99-1_amd64.deb
-Size: 153756
-MD5sum: 877fb3bc0231ba4152c0f4a08446ef5c
-SHA1: c31fc21fcb05a2084231272759c524e254e17d6d
-SHA256: 01df52459df513a382287afe4a964b05a1a47d7bef923a621fba4f082b804408
+Size: 155928
+MD5sum: 053dc95bf66dd3b98ea87c94f55b530b
+SHA1: 079c83ea247dfd40b73e85a1caebe23f1882f5ba
+SHA256: 5bec17fd5b1f27c4eac51f5bf1c32d9628c98489e0038deb7e40a23c2c6debda
 Section: sound
 Priority: optional
 Homepage: http://www.pulseaudio.org
@@ -207,10 +207,10 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Installed-Size: 166
 Depends: libc6 (>= 2.4), libcap2 (>= 1:2.10), libglib2.0-0 (>= 2.30.0), libpulse0 (= 1:14.2.99-1), pulseaudio (= 1:14.2.99-1), dconf-gsettings-backend | gsettings-backend
 Filename: ./pulseaudio-module-gsettings_14.2.99-1_amd64.deb
-Size: 94000
-MD5sum: 01f04b772a349fdffa1706c901886870
-SHA1: ba73d919e2c133497d8e14615de79d2d47630fa8
-SHA256: f51b2e69ac2bbf9fda2819889a1089eec259ce8a0b9f407e6e863dbe845fd627
+Size: 94004
+MD5sum: 43b8b5a690ed6c377cd2760bf60c2798
+SHA1: 61d3648b636c1f90a3bd15be42504ab07f862bd3
+SHA256: 0c6bbd2c950f4a39140cb51eeef21772c3c9fa7714025297b106d850e4b5bc7a
 Section: sound
 Priority: optional
 Homepage: http://www.pulseaudio.org
@@ -233,10 +233,10 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Installed-Size: 191
 Depends: libc6 (>= 2.4), libdbus-1-3 (>= 1.9.14), libjack-jackd2-0 (>= 1.9.10+20150825) | libjack-0.125, libpulse0 (= 1:14.2.99-1), pulseaudio (= 1:14.2.99-1)
 Filename: ./pulseaudio-module-jack_14.2.99-1_amd64.deb
-Size: 99952
-MD5sum: 1637e0677cadb42d3c5de7d4a9a0eedc
-SHA1: 0f8a22d5691bc4b8155a0abbb77dff705b44a700
-SHA256: 46be0df54155cd20e2064118085b1a2558862a09444dc930d6499e739807d95d
+Size: 99948
+MD5sum: a690745ec8fd9b3044dfb9b9ec4d4e72
+SHA1: 8e6e98c5bdce07268e9ab15589d7e106ebd1dff6
+SHA256: 229c3c5cebcaad88b5d3b5a2b46111e34c265984565e8c75d006ef1f70765829
 Section: sound
 Priority: optional
 Homepage: http://www.pulseaudio.org
@@ -258,10 +258,10 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Installed-Size: 125
 Depends: libc6 (>= 2.4), liblirc-client0, libpulse0 (= 1:14.2.99-1), pulseaudio (= 1:14.2.99-1)
 Filename: ./pulseaudio-module-lirc_14.2.99-1_amd64.deb
-Size: 89740
-MD5sum: 76265120109fff783dd4bd2d64e870b2
-SHA1: e685444e95be620ce88de7294e3f1933eb635414
-SHA256: 48f8584ab71119363abf209e8e2645c3d0cca6f59897b6c186198874bfd98f43
+Size: 89732
+MD5sum: 1c4c3513a5fa8955d602d48ba38389c3
+SHA1: 6f0574bc0e2f79d56656a28236f1b42e01a077a6
+SHA256: ba12b3f1d93e8e4977676547f080e2d1646f490efd5acf96642bab78fc4e671b
 Section: sound
 Priority: optional
 Homepage: http://www.pulseaudio.org
@@ -284,10 +284,10 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Installed-Size: 219
 Depends: libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libc6 (>= 2.4), libpulse0 (= 1:14.2.99-1), libssl1.1 (>= 1.1.0), pulseaudio (= 1:14.2.99-1), pulseaudio-module-zeroconf
 Filename: ./pulseaudio-module-raop_14.2.99-1_amd64.deb
-Size: 115196
-MD5sum: f3359e1c2a267c4e879560bdacfe5947
-SHA1: 80eb21604d7376b3cbf46c057b947bc7fa7a9d13
-SHA256: b51bf9c178bf78ed7679b34b173db2d48b0849c82138bbe530cd2f13f005cfaa
+Size: 115188
+MD5sum: 29e4c2bbb46f1cfddd1089af03098718
+SHA1: 817072915693106391dedfd5293e3ad1d21b4858
+SHA256: 87a2d723d5f34707b68a7f44a7a873d0ae08533d85672015a98802ec6e3de442
 Section: sound
 Priority: optional
 Homepage: http://www.pulseaudio.org
@@ -307,10 +307,10 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Installed-Size: 187
 Depends: libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libc6 (>= 2.4), libdbus-1-3 (>= 1.9.14), libpulse0 (= 1:14.2.99-1), pulseaudio (= 1:14.2.99-1), avahi-daemon
 Filename: ./pulseaudio-module-zeroconf_14.2.99-1_amd64.deb
-Size: 101952
-MD5sum: aeb97fa11b436bcd88a2ff32af43e160
-SHA1: e7a2647d5f7ef27055ab4608ca16271a396e64b2
-SHA256: 9cd4f5dc9d1e253fd9d39b02514c317ba8964af3594a1315a3e4dc59202f030c
+Size: 101948
+MD5sum: a97b4a9345ea29f6602ca079cc9d179b
+SHA1: d98121c62fd4ab548b9c72a0977f1df0786d9454
+SHA256: 4869b2c96a2ddab684b416a1f72d88efd14589ddf790f2af07fe6b0ed9b5b223
 Section: sound
 Priority: optional
 Homepage: http://www.pulseaudio.org
@@ -335,9 +335,9 @@ Depends: libc6 (>= 2.16), libcap2 (>= 1:2.10), libice6 (>= 1:1.0.0), libpulse0 (
 Suggests: avahi-daemon, pulseaudio
 Filename: ./pulseaudio-utils_14.2.99-1_amd64.deb
 Size: 136816
-MD5sum: e1359cd64548a445f3bcfbaea68ce388
-SHA1: 495187c3abbe27f7b12d3772db01cb782be1a9c6
-SHA256: 64e5fef52b396f35a2b4174d07becf983c01a2677cf6b2bbf1e93ca559a3b065
+MD5sum: e01642bfeac2ebd7256d0cb1e2b19c63
+SHA1: 20fc61e6d4e524e414f51e909d99afa4f5b95351
+SHA256: 2ca6c6bd9200ae54929fbaead6d02ac6e5dfe7a435f8b30afa5c586b9d854fb5
 Section: sound
 Priority: optional
 Homepage: http://www.pulseaudio.org

@@ -22,6 +22,7 @@ their merge dates for easy reference:
 - [bluetooth: Only use hardware volume callbacks for peer attenuation (hsp/hfp)](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/519) (merged Mar 27, 2021 5:17am GMT+0800)
 - [messaging api: use JSON instead of custom format](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/525) (merged Mar 27, 2021 7:21pm GMT+0800)
 - [bluetooth: WBS for native backend](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/507) (merged Apr 5, 2021 11:52pm GMT+0800)
+- [bluetooth: Unify A2DP sink/source volumes with AVRCP Absolute Volume](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/239) (merged May 17, 2021 10:53pm GMT+0800)
 
 Some of these patches are technically not required, but were included to avoid
 needing to resolve complicated merge conflicts.
