@@ -6,24 +6,25 @@ volume on some Bluetooth headsets.
 The following merge requests are included on top of the 14.2 release, along with
 ther merge dates for easy reference:
 
-```
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/51 Dec 3
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/238 Dec 9
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/440 Jan 19
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/479 Jan 21
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/481 Jan 21
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/474 Jan 21
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/488 Jan 26
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/476 Feb 2
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/491 Feb 23
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/518 Mar 4
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/520 Mar 6
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/521 Mar 16
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/528 Mar 18
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/519 Mar 27
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/525 Mar 27
-https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/507 Apr 5
-```
+- [Messaging API V2](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/51) (merged Dec 3, 2020 10:48pm GMT+0800)
+- [core, modules: Remove useless EINTR tests](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/238) (merged Dec 9, 2020 6:33pm GMT+0800)
+- [Add support for bluetooth A2DP codecs and codec switching](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/440) (merged Jan 19, 2021 11:33pm GMT+0800)
+- [bluetooth: Check support for encoding and decoding separately](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/479) (merged Jan 21, 2021 11:05pm GMT+0800)
+- [bluetooth: allow increasing output bitrate](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/481) (merged Jan 21, 2021 11:15pm GMT+0800)
+- [bluetooth: allow increasing output bitrate for SBC codec](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/474) (merged Jan 21, 2021 11:21pm GMT+0800)
+- [bluetooth: pass output_rate_refresh_interval_ms module parameter](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/488) (merged Jan 26, 2021 11:40pm GMT+0800)
+- [bluetooth: a2dp dual channel SBC XQ codec configurations](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/476) (merged Feb 2, 2021 1:18am GMT+0800)
+- [use bluetooth HFP in pulseaudio native backend when available](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/491) (merged Feb 23, 2021 9:20pm GMT+0800)
+- [bluetooth: check if target codec is available on the system](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/518) (merged Mar 4, 2021 6:42am GMT+0800)
+- [bluetooth: correct rfcomm command and reply formatting](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/520) (merged Mar 6, 2021 6:34am GMT+0800)
+- [bluetooth: Perform software attenuation until HF/HS reports gain control](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/521) (merged Mar 16, 2021 6:04pm GMT+0800)
+- [bluetooth: Set up hardware gain control if init volume is received late](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/528) (merged Mar 18, 2021 6:26am GMT+0800)
+- [bluetooth: Only use hardware volume callbacks for peer attenuation (hsp/hfp)](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/519) (merged Mar 27, 2021 5:17am GMT+0800)
+- [messaging api: use JSON instead of custom format](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/525) (merged Mar 27, 2021 7:21pm GMT+0800)
+- [bluetooth: WBS for native backend](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/507) (merged Apr 5, 2021 11:52pm GMT+0800)
+
+Some of these patches are technically not required, but were included to avoid
+needing to resolve complicated merge conflicts.
 
 ## Installation
 
