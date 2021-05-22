@@ -1,0 +1,53 @@
+From a63be3ca7b27035e7162d30f44dfd487acf4f984 Mon Sep 17 00:00:00 2001
+From: Tanu Kaskinen <tanuk@iki.fi>
+Date: Thu, 3 Sep 2020 13:33:15 +0300
+Subject: [PATCH 2/2] alsa-mixer: Expand comments in the HP Thunderbolt Dock
+ configuration
+
+---
+ .../alsa/mixer/profile-sets/hp-tbt-dock-120w-g2.conf     | 9 +++++++--
+ .../mixer/profile-sets/hp-tbt-dock-audio-module.conf     | 7 ++++++-
+ 2 files changed, 13 insertions(+), 3 deletions(-)
+
+diff --git a/src/modules/alsa/mixer/profile-sets/hp-tbt-dock-120w-g2.conf b/src/modules/alsa/mixer/profile-sets/hp-tbt-dock-120w-g2.conf
+index 3f652816b..a683a4e4e 100644
+--- a/src/modules/alsa/mixer/profile-sets/hp-tbt-dock-120w-g2.conf
++++ b/src/modules/alsa/mixer/profile-sets/hp-tbt-dock-120w-g2.conf
+@@ -13,9 +13,14 @@
+ # You should have received a copy of the GNU Lesser General Public License
+ # along with PulseAudio; if not, see <http://www.gnu.org/licenses/>.
+ 
+-; HP Thunderbolt Dock Audio Headset
++; HP Thunderbolt Dock 120W G2
+ ;
+-; This card has one stereo input and one stereo output.
++; This dock has a 3.5mm headset connector. Both input and output are stereo.
++;
++; There's a separate speakerphone module called "HP Thunderbolt Dock Audio
++; Module", which can be attached to this dock. The module will appear in ALSA
++; as a separate USB sound card, configuration for it is in
++; hp-tbt-dock-audio-module.conf.
+ 
+ [General]
+ auto-profiles = no
+diff --git a/src/modules/alsa/mixer/profile-sets/hp-tbt-dock-audio-module.conf b/src/modules/alsa/mixer/profile-sets/hp-tbt-dock-audio-module.conf
+index c03275cbe..692ab8dd0 100644
+--- a/src/modules/alsa/mixer/profile-sets/hp-tbt-dock-audio-module.conf
++++ b/src/modules/alsa/mixer/profile-sets/hp-tbt-dock-audio-module.conf
+@@ -15,7 +15,12 @@
+ 
+ ; HP Thunderbolt Dock Audio Module
+ ;
+-; This card has one stereo input and one stereo output.
++; This device attaches to the "HP Thunderbolt Dock 120W G2" dock. The audio
++; module provides a speakerphone with echo cancellation and appears in ALSA as
++; a USB sound card with stereo input and output.
++;
++; The dock itself has a 3.5mm headset connector and appears as a separate USB
++; sound card, configuration for it is in hp-tbt-dock-120w-g2.conf.
+ 
+ [General]
+ auto-profiles = no
+-- 
+2.17.1
+

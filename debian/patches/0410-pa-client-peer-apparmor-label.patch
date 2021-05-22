@@ -1,0 +1,176 @@
+From: James Henstridge <james.henstridge@canonical.com>
+Date: Mon, 21 Sep 2020 16:56:08 +0800
+Subject: pulsecore: expose peer AppArmor label on pa_client
+
+Forwarded: not-needed
+
+This patch uses aa_getpeercon to get the AppArmor label of the peer
+and store it in the pa_client struct.  Only the native protocol
+connection handler has been updated, as that is the only protocol with
+access control hooks.
+---
+ configure.ac                    |  6 ++++++
+ src/Makefile.am                 | 10 ++++++++++
+ src/pulsecore/client.c          |  3 +++
+ src/pulsecore/client.h          |  3 +++
+ src/pulsecore/iochannel.c       | 17 +++++++++++++++++
+ src/pulsecore/iochannel.h       |  4 ++++
+ src/pulsecore/protocol-native.c |  1 +
+ 7 files changed, 44 insertions(+)
+
+Index: pulseaudio/configure.ac
+===================================================================
+--- pulseaudio.orig/configure.ac
++++ pulseaudio/configure.ac
+@@ -708,6 +708,12 @@ AS_IF([test "x$HAVE_LIBSAMPLERATE" = "x1
+ 
+ AS_IF([test "x$HAVE_LIBSAMPLERATE" = "x1"], AC_MSG_WARN([Support for libsamplerate is DEPRECATED]))
+ 
++#### AppArmor support (optional) ####
++
++PKG_CHECK_MODULES(APPARMOR, [libapparmor], [HAVE_APPARMOR=1], [HAVE_APPARMOR=0])
++AM_CONDITIONAL([HAVE_APPARMOR], [test "x$HAVE_APPARMOR" = x1])
++AS_IF([test "x$HAVE_APPARMOR" = x1], [AC_DEFINE([HAVE_APPARMOR], 1, [AppArmor support library is available.])])
++
+ #### Database support ####
+ 
+ AC_ARG_WITH([database],
+Index: pulseaudio/src/Makefile.am
+===================================================================
+--- pulseaudio.orig/src/Makefile.am
++++ pulseaudio/src/Makefile.am
+@@ -851,6 +851,11 @@ libpulsecommon_@PA_MAJORMINOR@_la_CFLAGS
+ libpulsecommon_@PA_MAJORMINOR@_la_LIBADD += $(DBUS_LIBS)
+ endif
+ 
++if HAVE_APPARMOR
++libpulsecommon_@PA_MAJORMINOR@_la_CFLAGS += $(APPARMOR_CFLAGS)
++libpulsecommon_@PA_MAJORMINOR@_la_LIBADD += $(APPARMOR_LIBS)
++endif
++
+ ###################################
+ #         Client library          #
+ ###################################
+@@ -1111,6 +1116,11 @@ libpulsecore_@PA_MAJORMINOR@_la_CFLAGS +
+ libpulsecore_@PA_MAJORMINOR@_la_LIBADD += $(LIBSAMPLERATE_LIBS)
+ endif
+ 
++if HAVE_APPARMOR
++libpulsecore_@PA_MAJORMINOR@_la_CFLAGS += $(APPARMOR_CFLAGS)
++libpulsecore_@PA_MAJORMINOR@_la_LIBADD += $(APPARMOR_LIBS)
++endif
++
+ # We split the foreign code off to not be annoyed by warnings we don't care about
+ noinst_LTLIBRARIES += libpulsecore-foreign.la
+ 
+Index: pulseaudio/src/pulsecore/client.c
+===================================================================
+--- pulseaudio.orig/src/pulsecore/client.c
++++ pulseaudio/src/pulsecore/client.c
+@@ -49,6 +49,7 @@ void pa_client_new_data_done(pa_client_n
+     pa_assert(data);
+ 
+     pa_proplist_free(data->proplist);
++    pa_xfree(data->apparmor_label);
+ }
+ 
+ pa_client *pa_client_new(pa_core *core, pa_client_new_data *data) {
+@@ -62,6 +63,7 @@ pa_client *pa_client_new(pa_core *core,
+ 
+     c = pa_xnew0(pa_client, 1);
+     c->core = core;
++    c->apparmor_label = pa_xstrdup(data->apparmor_label);
+     c->proplist = pa_proplist_copy(data->proplist);
+     c->driver = pa_xstrdup(pa_path_get_filename(data->driver));
+     c->module = data->module;
+@@ -103,6 +105,7 @@ void pa_client_free(pa_client *c) {
+ 
+     pa_proplist_free(c->proplist);
+     pa_xfree(c->driver);
++    pa_xfree(c->apparmor_label);
+     pa_xfree(c);
+ 
+     pa_core_check_idle(core);
+Index: pulseaudio/src/pulsecore/client.h
+===================================================================
+--- pulseaudio.orig/src/pulsecore/client.h
++++ pulseaudio/src/pulsecore/client.h
+@@ -35,6 +35,8 @@ struct pa_client {
+     uint32_t index;
+     pa_core *core;
+ 
++    char *apparmor_label;
++
+     pa_proplist *proplist;
+     pa_module *module;
+     char *driver;
+@@ -53,6 +55,7 @@ typedef struct pa_client_new_data {
+     pa_proplist *proplist;
+     const char *driver;
+     pa_module *module;
++    char *apparmor_label;
+ } pa_client_new_data;
+ 
+ pa_client_new_data *pa_client_new_data_init(pa_client_new_data *data);
+Index: pulseaudio/src/pulsecore/iochannel.c
+===================================================================
+--- pulseaudio.orig/src/pulsecore/iochannel.c
++++ pulseaudio/src/pulsecore/iochannel.c
+@@ -30,6 +30,10 @@
+ #include <sys/un.h>
+ #endif
+ 
++#ifdef HAVE_APPARMOR
++#include <sys/apparmor.h>
++#endif
++
+ #include <pulse/xmalloc.h>
+ 
+ #include <pulsecore/core-error.h>
+@@ -497,6 +501,19 @@ void pa_iochannel_socket_peer_to_string(
+     pa_socket_peer_to_string(io->ifd, s, l);
+ }
+ 
++char *pa_iochannel_socket_get_peer_apparmor_label(pa_iochannel *io) {
++    pa_assert(io);
++
++#ifdef HAVE_APPARMOR
++    char *label = NULL;
++    if (aa_getpeercon(io->ifd, &label, NULL) == -1)
++        return NULL;
++    return label;
++#else
++    return NULL;
++#endif
++}
++
+ int pa_iochannel_socket_set_rcvbuf(pa_iochannel *io, size_t l) {
+     pa_assert(io);
+ 
+Index: pulseaudio/src/pulsecore/iochannel.h
+===================================================================
+--- pulseaudio.orig/src/pulsecore/iochannel.h
++++ pulseaudio/src/pulsecore/iochannel.h
+@@ -75,6 +75,10 @@ void pa_iochannel_set_callback(pa_iochan
+ /* In case the file descriptor is a socket, return a pretty-printed string in *s which describes the peer connected */
+ void pa_iochannel_socket_peer_to_string(pa_iochannel*io, char*s, size_t l);
+ 
++/* In case the file descriptor is a socket, return the apparmor label
++ * of the peer, if available. */
++char *pa_iochannel_socket_get_peer_apparmor_label(pa_iochannel *io);
++
+ /* Use setsockopt() to tune the receive and send buffers of TCP sockets */
+ int pa_iochannel_socket_set_rcvbuf(pa_iochannel*io, size_t l);
+ int pa_iochannel_socket_set_sndbuf(pa_iochannel*io, size_t l);
+Index: pulseaudio/src/pulsecore/protocol-native.c
+===================================================================
+--- pulseaudio.orig/src/pulsecore/protocol-native.c
++++ pulseaudio/src/pulsecore/protocol-native.c
+@@ -5297,6 +5297,7 @@ void pa_native_protocol_connect(pa_nativ
+     pa_client_new_data_init(&data);
+     data.module = o->module;
+     data.driver = __FILE__;
++    data.apparmor_label = pa_iochannel_socket_get_peer_apparmor_label(io);
+     pa_iochannel_socket_peer_to_string(io, pname, sizeof(pname));
+     pa_proplist_setf(data.proplist, PA_PROP_APPLICATION_NAME, "Native client (%s)", pname);
+     pa_proplist_sets(data.proplist, "native-protocol.peer", pname);

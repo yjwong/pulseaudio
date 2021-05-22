@@ -1,0 +1,143 @@
+From 1362f55432732aaedd7cebb021ab444e005af22a Mon Sep 17 00:00:00 2001
+From: Kai-Heng Feng <kai.heng.feng@canonical.com>
+Date: Wed, 2 Sep 2020 00:23:54 +0800
+Subject: [PATCH 1/2] alsa-mixer: Add support for HP Thunderbolt Dock
+
+The HP Thunderbolt Dock [1] has two separate USB cards, a headset jack
+and an optional module which is a speakerphone.
+
+This patch adds new description for them, and mark the intended-roles as
+phone for the speakerphone module.
+
+[1] https://store.hp.com/us/en/pdp/hp-thunderbolt-dock-120w-g2-with-audio
+---
+ src/Makefile.am                               |  4 ++-
+ src/modules/alsa/90-pulseaudio.rules          |  2 ++
+ src/modules/alsa/alsa-mixer.c                 |  4 +++
+ .../profile-sets/hp-tbt-dock-120w-g2.conf     | 30 ++++++++++++++++++
+ .../hp-tbt-dock-audio-module.conf             | 31 +++++++++++++++++++
+ 5 files changed, 70 insertions(+), 1 deletion(-)
+ create mode 100644 src/modules/alsa/mixer/profile-sets/hp-tbt-dock-120w-g2.conf
+ create mode 100644 src/modules/alsa/mixer/profile-sets/hp-tbt-dock-audio-module.conf
+
+Index: pulseaudio/src/Makefile.am
+===================================================================
+--- pulseaudio.orig/src/Makefile.am
++++ pulseaudio/src/Makefile.am
+@@ -1367,7 +1367,9 @@ dist_alsaprofilesets_DATA = \
+ 		modules/alsa/mixer/profile-sets/steelseries-arctis-common-usb-audio.conf \
+ 		modules/alsa/mixer/profile-sets/usb-gaming-headset.conf \
+ 		modules/alsa/mixer/profile-sets/dell-dock-tb16-usb-audio.conf \
+-		modules/alsa/mixer/profile-sets/cmedia-high-speed-true-hdaudio.conf
++		modules/alsa/mixer/profile-sets/cmedia-high-speed-true-hdaudio.conf \
++		modules/alsa/mixer/profile-sets/hp-tbt-dock-120w-g2.conf \
++		modules/alsa/mixer/profile-sets/hp-tbt-dock-audio-module.conf
+ 
+ if HAVE_UDEV
+ dist_udevrules_DATA = \
+Index: pulseaudio/src/modules/alsa/90-pulseaudio.rules
+===================================================================
+--- pulseaudio.orig/src/modules/alsa/90-pulseaudio.rules
++++ pulseaudio/src/modules/alsa/90-pulseaudio.rules
+@@ -110,6 +110,8 @@ ATTRS{idVendor}=="0763", ATTRS{idProduct
+ ATTRS{idVendor}=="045e", ATTRS{idProduct}=="02bb", ENV{PULSE_PROFILE_SET}="kinect-audio.conf"
+ ATTRS{idVendor}=="041e", ATTRS{idProduct}=="322c", ENV{PULSE_PROFILE_SET}="sb-omni-surround-5.1.conf"
+ ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="4014", ENV{PULSE_PROFILE_SET}="dell-dock-tb16-usb-audio.conf"
++ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="0269", ENV{PULSE_PROFILE_SET}="hp-tbt-dock-120w-g2.conf"
++ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="0567", ENV{PULSE_PROFILE_SET}="hp-tbt-dock-audio-module.conf"
+ 
+ # ID 1038:12ad is for the 2018 refresh of the Arctis 7.
+ # ID 1038:1294 is for Arctis Pro Wireless (which works with the Arctis 7 configuration).
+Index: pulseaudio/src/modules/alsa/alsa-mixer.c
+===================================================================
+--- pulseaudio.orig/src/modules/alsa/alsa-mixer.c
++++ pulseaudio/src/modules/alsa/alsa-mixer.c
+@@ -4507,6 +4507,8 @@ static int mapping_verify(pa_alsa_mappin
+          * multichannel-input and multichannel-output. */
+         { "analog-stereo-input",    N_("Analog Stereo") },
+         { "analog-stereo-output",   N_("Analog Stereo") },
++        { "analog-stereo-headset",  N_("Headset") },
++        { "analog-stereo-speakerphone",  N_("Speakerphone") },
+         { "multichannel-input",     N_("Multichannel") },
+         { "multichannel-output",    N_("Multichannel") },
+         { "analog-surround-21",     N_("Analog Surround 2.1") },
+@@ -4663,6 +4665,8 @@ static int profile_verify(pa_alsa_profil
+     static const struct description_map well_known_descriptions[] = {
+         { "output:analog-mono+input:analog-mono",     N_("Analog Mono Duplex") },
+         { "output:analog-stereo+input:analog-stereo", N_("Analog Stereo Duplex") },
++        { "output:analog-stereo-headset+input:analog-stereo-headset", N_("Headset") },
++        { "output:analog-stereo-speakerphone+input:analog-stereo-speakerphone", N_("Speakerphone") },
+         { "output:iec958-stereo+input:iec958-stereo", N_("Digital Stereo Duplex (IEC958)") },
+         { "output:multichannel-output+input:multichannel-input", N_("Multichannel Duplex") },
+         { "output:unknown-stereo+input:unknown-stereo", N_("Stereo Duplex") },
+Index: pulseaudio/src/modules/alsa/mixer/profile-sets/hp-tbt-dock-120w-g2.conf
+===================================================================
+--- /dev/null
++++ pulseaudio/src/modules/alsa/mixer/profile-sets/hp-tbt-dock-120w-g2.conf
+@@ -0,0 +1,30 @@
++# This file is part of PulseAudio.
++#
++# PulseAudio is free software; you can redistribute it and/or modify
++# it under the terms of the GNU Lesser General Public License as
++# published by the Free Software Foundation; either version 2.1 of the
++# License, or (at your option) any later version.
++#
++# PulseAudio is distributed in the hope that it will be useful, but
++# WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
++# General Public License for more details.
++#
++# You should have received a copy of the GNU Lesser General Public License
++# along with PulseAudio; if not, see <http://www.gnu.org/licenses/>.
++
++; HP Thunderbolt Dock Audio Headset
++;
++; This card has one stereo input and one stereo output.
++
++[General]
++auto-profiles = no
++
++[Mapping analog-stereo-headset]
++device-strings = hw:%f,0,0
++channel-map = left,right
++
++[Profile output:analog-stereo-headset+input:analog-stereo-headset]
++output-mappings = analog-stereo-headset
++input-mappings = analog-stereo-headset
++skip-probe = yes
+Index: pulseaudio/src/modules/alsa/mixer/profile-sets/hp-tbt-dock-audio-module.conf
+===================================================================
+--- /dev/null
++++ pulseaudio/src/modules/alsa/mixer/profile-sets/hp-tbt-dock-audio-module.conf
+@@ -0,0 +1,31 @@
++# This file is part of PulseAudio.
++#
++# PulseAudio is free software; you can redistribute it and/or modify
++# it under the terms of the GNU Lesser General Public License as
++# published by the Free Software Foundation; either version 2.1 of the
++# License, or (at your option) any later version.
++#
++# PulseAudio is distributed in the hope that it will be useful, but
++# WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
++# General Public License for more details.
++#
++# You should have received a copy of the GNU Lesser General Public License
++# along with PulseAudio; if not, see <http://www.gnu.org/licenses/>.
++
++; HP Thunderbolt Dock Audio Module
++;
++; This card has one stereo input and one stereo output.
++
++[General]
++auto-profiles = no
++
++[Mapping analog-stereo-speakerphone]
++device-strings = hw:%f,0,0
++channel-map = left,right
++intended-roles = phone
++
++[Profile output:analog-stereo-speakerphone+input:analog-stereo-speakerphone]
++output-mappings = analog-stereo-speakerphone
++input-mappings = analog-stereo-speakerphone
++skip-probe = yes
