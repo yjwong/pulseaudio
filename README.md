@@ -4,7 +4,7 @@ This PPA contains PulseAudio packages, incorporating mSBC/WBS and fixes low
 volume on some Bluetooth headsets.
 
 The following merge requests are included on top of the 14.2 release, along with
-ther merge dates for easy reference:
+their merge dates for easy reference:
 
 - [Messaging API V2](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/51) (merged Dec 3, 2020 10:48pm GMT+0800)
 - [core, modules: Remove useless EINTR tests](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/238) (merged Dec 9, 2020 6:33pm GMT+0800)
