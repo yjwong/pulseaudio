@@ -26,7 +26,19 @@ their merge dates for easy reference:
 Some of these patches are technically not required, but were included to avoid
 needing to resolve complicated merge conflicts.
 
+## Why?
+
+I was having trouble with my [Grado GW100](https://gradolabs.com/headphones/wireless/item/74-gw100),
+where the microphone volume was too low for the other party.
+
+An alternate solution was to replace PulseAudio with PipeWire entirely, but the
+official PipeWire package in Ubuntu 20.04 LTS is too old and I didn't want to go
+through the hassle of packaging a recent release.
+
 ## Installation
+
+**Important Note**: This may require a recent kernel (I use 5.12.5) for mSBC to
+work properly. See the comments in this [linked issue](https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/merge_requests/507).
 
 To add this PPA to your system, run the following:
 
