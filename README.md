@@ -33,6 +33,15 @@ To add this PPA to your system, run the following:
 curl -s --compressed "https://yjwong.github.io/pulseaudio/key.gpg" | sudo apt-key add -
 sudo curl -s --compressed -o /etc/apt/sources.list.d/pulseaudio.list "https://yjwong.github.io/pulseaudio/pulseaudio.list"
 sudo apt update
+sudo apt upgrade
+```
+
+After installation, you will also need to restart PulseAudio for the changes to
+take effect:
+
+```shell
+systemctl --user daemon-reload
+systemctl --user restart pulseaudio
 ```
 
 ## Building
@@ -41,9 +50,13 @@ Ensure you have the requisite build dependencies installed on your system.
 
 Then, check out the `packaged/14.2.99` branch, then run:
 
-```
+```shell
 git archive --format=tar.gz -o ../pulseaudio_14.2.99.orig.tar.gz --prefix=pulseaudio-14.2.99/ upstream/14.2.99
 dpkg-buildpackage -uc -us
 ```
 
 Built packages will be found in the parent directory.
+
+## References
+
+- [Hosting your own PPA repository on GitHub](https://assafmo.github.io/2019/05/02/ppa-repo-hosted-on-github.html)
