@@ -1325,6 +1325,24 @@ AS_IF([test "x$enable_gstreamer" = "xyes" && test "x$HAVE_GSTREAMER" = "x0"],
 AM_CONDITIONAL([HAVE_GSTREAMER], [test "x$HAVE_GSTREAMER" = x1])
 AS_IF([test "x$HAVE_GSTREAMER" = "x1"], AC_DEFINE([HAVE_GSTREAMER], 1, [Have GStreamer?]))
 
+#### GStreamer-based codecs support (optional) ####
+
+AC_ARG_ENABLE([bluez5-gstreamer],
+    AS_HELP_STRING([--enable-bluez5-gstreamer],[Enable optional GStreamer-based codecs support]))
+
+AS_IF([test "x$enable_bluez5_gstreamer" != "xno"],
+    [PKG_CHECK_MODULES(BLUEZ_5_GSTREAMER, [ gstreamer-1.0 >= 1.14 gstreamer-app-1.0 ],
+                       HAVE_BLUEZ_5_GSTREAMER=1, HAVE_BLUEZ_5_GSTREAMER=0)],
+    HAVE_BLUEZ_5_GSTREAMER=0)
+
+AS_IF([test "x$enable_bluez5_gstreamer" = "xyes" && test "x$HAVE_BLUEZ_5_GSTREAMER" = "x0"],
+    [AC_MSG_ERROR([*** GStreamer 1.0 support not found])])
+
+AM_CONDITIONAL([HAVE_BLUEZ_5_GSTREAMER], [test "x$HAVE_BLUEZ_5_GSTREAMER" = x1])
+AS_IF([test "x$HAVE_BLUEZ_5_GSTREAMER" = "x1"], [
+    AC_DEFINE([HAVE_GSTLDAC], 1, [Have GStreamer LDAC?]),
+    AC_DEFINE([HAVE_GSTAPTX], 1, [Have GStreamer aptX?])])
+
 #### Build and Install man pages ####
 
 AC_ARG_ENABLE([manpages],
@@ -1638,6 +1656,7 @@ AS_IF([test "x$HAVE_SYSTEMD_JOURNAL" = "x1"], ENABLE_SYSTEMD_JOURNAL=yes, ENABLE
 AS_IF([test "x$HAVE_BLUEZ_5" = "x1"], ENABLE_BLUEZ_5=yes, ENABLE_BLUEZ_5=no)
 AS_IF([test "x$HAVE_BLUEZ_5_OFONO_HEADSET" = "x1"], ENABLE_BLUEZ_5_OFONO_HEADSET=yes, ENABLE_BLUEZ_5_OFONO_HEADSET=no)
 AS_IF([test "x$HAVE_BLUEZ_5_NATIVE_HEADSET" = "x1"], ENABLE_BLUEZ_5_NATIVE_HEADSET=yes, ENABLE_BLUEZ_5_NATIVE_HEADSET=no)
+AS_IF([test "x$HAVE_BLUEZ_5_GSTREAMER" = "x1"], ENABLE_BLUEZ_5_GSTREAMER=yes, ENABLE_BLUEZ_5_GSTREAMER=no)
 AS_IF([test "x$HAVE_HAL_COMPAT" = "x1"], ENABLE_HAL_COMPAT=yes, ENABLE_HAL_COMPAT=no)
 AS_IF([test "x$HAVE_TCPWRAP" = "x1"], ENABLE_TCPWRAP=yes, ENABLE_TCPWRAP=no)
 AS_IF([test "x$HAVE_LIBSAMPLERATE" = "x1"], ENABLE_LIBSAMPLERATE="yes (DEPRECATED)", ENABLE_LIBSAMPLERATE=no)
@@ -1663,76 +1682,77 @@ AS_IF([test "x$enable_stream_restore_clear_old_devices" == "xyes"], ENABLE_STREA
 echo "
  ---{ $PACKAGE_NAME $VERSION }---
 
-    prefix:                        ${prefix}
-    sysconfdir:                    ${sysconfdir}
-    localstatedir:                 ${localstatedir}
-    modlibexecdir:                 ${modlibexecdir}
-    alsadatadir:                   ${alsadatadir}
-    System Runtime Path:           ${PA_SYSTEM_RUNTIME_PATH}
-    System State Path:             ${PA_SYSTEM_STATE_PATH}
-    System Config Path:            ${PA_SYSTEM_CONFIG_PATH}
-    Zsh completions directory:     ${zshcompletiondir}
-    Bash completions directory:    ${bashcompletiondir}
-    Compiler:                      ${CC}
-    CFLAGS:                        ${CFLAGS}
-    CPPFLAGS:                      ${CPPFLAGS}
-    LIBS:                          ${LIBS}
+    prefix:                            ${prefix}
+    sysconfdir:                        ${sysconfdir}
+    localstatedir:                     ${localstatedir}
+    modlibexecdir:                     ${modlibexecdir}
+    alsadatadir:                       ${alsadatadir}
+    System Runtime Path:               ${PA_SYSTEM_RUNTIME_PATH}
+    System State Path:                 ${PA_SYSTEM_STATE_PATH}
+    System Config Path:                ${PA_SYSTEM_CONFIG_PATH}
+    Zsh completions directory:         ${zshcompletiondir}
+    Bash completions directory:        ${bashcompletiondir}
+    Compiler:                          ${CC}
+    CFLAGS:                            ${CFLAGS}
+    CPPFLAGS:                          ${CPPFLAGS}
+    LIBS:                              ${LIBS}
 
-    Enable memfd shared memory:    ${ENABLE_MEMFD}
-    Enable X11:                    ${ENABLE_X11}
-    Enable OSS Output:             ${ENABLE_OSS_OUTPUT}
-    Enable OSS Wrapper:            ${ENABLE_OSS_WRAPPER}
-    Enable EsounD:                 ${ENABLE_ESOUND}
-    Enable Alsa:                   ${ENABLE_ALSA}
-    Enable CoreAudio:              ${ENABLE_COREAUDIO}
-    Enable Solaris:                ${ENABLE_SOLARIS}
-    Enable WaveOut:                ${ENABLE_WAVEOUT}
-    Enable GLib 2.0:               ${ENABLE_GLIB20}
-    Enable Gtk+ 3.0:               ${ENABLE_GTK30}
-    Enable GConf:                  ${ENABLE_GCONF}
-    Enable GSettings:              ${ENABLE_GSETTINGS}
-    Enable Avahi:                  ${ENABLE_AVAHI}
-    Enable Jack:                   ${ENABLE_JACK}
-    Enable Async DNS:              ${ENABLE_LIBASYNCNS}
-    Enable LIRC:                   ${ENABLE_LIRC}
-    Enable D-Bus:                  ${ENABLE_DBUS}
-      Enable BlueZ 5:              ${ENABLE_BLUEZ_5}
-        Enable ofono headsets:     ${ENABLE_BLUEZ_5_OFONO_HEADSET}
-        Enable native headsets:    ${ENABLE_BLUEZ_5_NATIVE_HEADSET}
-    Enable udev:                   ${ENABLE_UDEV}
-      Enable HAL->udev compat:     ${ENABLE_HAL_COMPAT}
+    Enable memfd shared memory:        ${ENABLE_MEMFD}
+    Enable X11:                        ${ENABLE_X11}
+    Enable OSS Output:                 ${ENABLE_OSS_OUTPUT}
+    Enable OSS Wrapper:                ${ENABLE_OSS_WRAPPER}
+    Enable EsounD:                     ${ENABLE_ESOUND}
+    Enable Alsa:                       ${ENABLE_ALSA}
+    Enable CoreAudio:                  ${ENABLE_COREAUDIO}
+    Enable Solaris:                    ${ENABLE_SOLARIS}
+    Enable WaveOut:                    ${ENABLE_WAVEOUT}
+    Enable GLib 2.0:                   ${ENABLE_GLIB20}
+    Enable Gtk+ 3.0:                   ${ENABLE_GTK30}
+    Enable GConf:                      ${ENABLE_GCONF}
+    Enable GSettings:                  ${ENABLE_GSETTINGS}
+    Enable Avahi:                      ${ENABLE_AVAHI}
+    Enable Jack:                       ${ENABLE_JACK}
+    Enable Async DNS:                  ${ENABLE_LIBASYNCNS}
+    Enable LIRC:                       ${ENABLE_LIRC}
+    Enable D-Bus:                      ${ENABLE_DBUS}
+      Enable BlueZ 5:                  ${ENABLE_BLUEZ_5}
+        Enable ofono headsets:         ${ENABLE_BLUEZ_5_OFONO_HEADSET}
+        Enable native headsets:        ${ENABLE_BLUEZ_5_NATIVE_HEADSET}
+        Enable GStreamer based codecs: ${ENABLE_BLUEZ_5_GSTREAMER}
+    Enable udev:                       ${ENABLE_UDEV}
+      Enable HAL->udev compat:         ${ENABLE_HAL_COMPAT}
     Enable systemd
-      Daemon (Socket Activation):  ${ENABLE_SYSTEMD_DAEMON}
-      Login (Session Tracking):    ${ENABLE_SYSTEMD_LOGIN}
-      Journal (Logging):           ${ENABLE_SYSTEMD_JOURNAL}
-    Enable TCP Wrappers:           ${ENABLE_TCPWRAP}
-    Enable libsamplerate:          ${ENABLE_LIBSAMPLERATE}
-    Enable IPv6:                   ${ENABLE_IPV6}
-    Enable OpenSSL (for Airtunes): ${ENABLE_OPENSSL}
-    Enable fftw:                   ${ENABLE_FFTW}
-    Enable orc:                    ${ENABLE_ORC}
-    Enable Adrian echo canceller:  ${ENABLE_ADRIAN_EC}
-    Enable speex (resampler, AEC): ${ENABLE_SPEEX}
-    Enable soxr (resampler):       ${ENABLE_SOXR}
-    Enable WebRTC echo canceller:  ${ENABLE_WEBRTC}
-    Enable GStreamer-based RTP:    ${ENABLE_GSTREAMER}
-    Enable gcov coverage:          ${ENABLE_GCOV}
-    Enable unit tests:             ${ENABLE_TESTS}
+      Daemon (Socket Activation):      ${ENABLE_SYSTEMD_DAEMON}
+      Login (Session Tracking):        ${ENABLE_SYSTEMD_LOGIN}
+      Journal (Logging):               ${ENABLE_SYSTEMD_JOURNAL}
+    Enable TCP Wrappers:               ${ENABLE_TCPWRAP}
+    Enable libsamplerate:              ${ENABLE_LIBSAMPLERATE}
+    Enable IPv6:                       ${ENABLE_IPV6}
+    Enable OpenSSL (for Airtunes):     ${ENABLE_OPENSSL}
+    Enable fftw:                       ${ENABLE_FFTW}
+    Enable orc:                        ${ENABLE_ORC}
+    Enable Adrian echo canceller:      ${ENABLE_ADRIAN_EC}
+    Enable speex (resampler, AEC):     ${ENABLE_SPEEX}
+    Enable soxr (resampler):           ${ENABLE_SOXR}
+    Enable WebRTC echo canceller:      ${ENABLE_WEBRTC}
+    Enable GStreamer-based RTP:        ${ENABLE_GSTREAMER}
+    Enable gcov coverage:              ${ENABLE_GCOV}
+    Enable unit tests:                 ${ENABLE_TESTS}
     Database
-      tdb:                         ${ENABLE_TDB}
-      gdbm:                        ${ENABLE_GDBM}
-      simple database:             ${ENABLE_SIMPLEDB}
+      tdb:                             ${ENABLE_TDB}
+      gdbm:                            ${ENABLE_GDBM}
+      simple database:                 ${ENABLE_SIMPLEDB}
 
-    System User:                   ${PA_SYSTEM_USER}
-    System Group:                  ${PA_SYSTEM_GROUP}
-    Access Group:                  ${PA_ACCESS_GROUP}
-    Enable per-user EsounD socket: ${ENABLE_PER_USER_ESOUND_SOCKET}
-    Force preopen:                 ${FORCE_PREOPEN}
-    Preopened modules:             ${PREOPEN_MODS}
+    System User:                       ${PA_SYSTEM_USER}
+    System Group:                      ${PA_SYSTEM_GROUP}
+    Access Group:                      ${PA_ACCESS_GROUP}
+    Enable per-user EsounD socket:     ${ENABLE_PER_USER_ESOUND_SOCKET}
+    Force preopen:                     ${FORCE_PREOPEN}
+    Preopened modules:                 ${PREOPEN_MODS}
 
-    Legacy Database Entry Support: ${ENABLE_LEGACY_DATABASE_ENTRY_FORMAT}
+    Legacy Database Entry Support:     ${ENABLE_LEGACY_DATABASE_ENTRY_FORMAT}
     module-stream-restore:
-      Clear old devices:           ${ENABLE_STREAM_RESTORE_CLEAR_OLD_DEVICES}
+      Clear old devices:               ${ENABLE_STREAM_RESTORE_CLEAR_OLD_DEVICES}
 "
 
 if test "${ENABLE_SPEEX}" = "no" && test "${ENABLE_WEBRTC}" = "no" && test "${ENABLE_ADRIAN_EC}" = "no" ; then
