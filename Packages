@@ -178,13 +178,13 @@ Source: pulseaudio
 Version: 1:14.2.99-1
 Architecture: amd64
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Installed-Size: 373
-Depends: libc6 (>= 2.14), libdbus-1-3 (>= 1.9.14), libpulse0 (= 1:14.2.99-1), libsbc1, pulseaudio (= 1:14.2.99-1), bluez (>= 5.23)
+Installed-Size: 405
+Depends: libc6 (>= 2.14), libdbus-1-3 (>= 1.9.14), libglib2.0-0 (>= 2.12.0), libgstreamer-plugins-base1.0-0 (>= 1.0.0), libgstreamer1.0-0 (>= 1.0.0), libpulse0 (= 1:14.2.99-1), libsbc1, pulseaudio (= 1:14.2.99-1), bluez (>= 5.23)
 Filename: ./pulseaudio-module-bluetooth_14.2.99-1_amd64.deb
-Size: 155928
-MD5sum: 053dc95bf66dd3b98ea87c94f55b530b
-SHA1: 079c83ea247dfd40b73e85a1caebe23f1882f5ba
-SHA256: 5bec17fd5b1f27c4eac51f5bf1c32d9628c98489e0038deb7e40a23c2c6debda
+Size: 164508
+MD5sum: 930b7d83d582ce7a73040eda176e6cdf
+SHA1: 97b18f6996cae35caf835cc41ea8b77418f0f51b
+SHA256: 8a27d0d3723048a87e98f5dc0b0450456e9f3d96cd29566a7a26b9d47700d088
 Section: sound
 Priority: optional
 Homepage: http://www.pulseaudio.org
