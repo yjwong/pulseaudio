@@ -27,6 +27,13 @@ their merge dates for easy reference:
 Some of these patches are technically not required, but were included to avoid
 needing to resolve complicated merge conflicts.
 
+This PPA also includes GStreamer packages with the following patches to enable
+support for LDAC, aptX and aptX-HD codecs:
+
+- [Add support for LDAC encoder](https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad/-/merge_requests/1621)
+- [ext/ldac: Fix typo in 88200(0) stereo encoder sampling rate](https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad/-/merge_requests/1985)
+- [openaptx: add aptX and aptX-HD codecs using libopenaptx](https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad/-/merge_requests/1871)
+
 ## Why?
 
 I was having trouble with my [Grado GW100](https://gradolabs.com/headphones/wireless/item/74-gw100),
