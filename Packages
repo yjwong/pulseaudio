@@ -32,6 +32,40 @@ Description: GObject introspection data for the GStreamer libraries from the "ba
  generate dynamic bindings.
 Original-Maintainer: Maintainers of GStreamer packages <gst-plugins-bad1.0@packages.debian.org>
 
+Package: gir1.2-gst-plugins-bad-1.0
+Source: gst-plugins-bad1.0
+Version: 1.16.2-2.1ubuntu1+1yjwong2
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 237
+Depends: gir1.2-gst-plugins-base-1.0 (>= 1.16.2), gir1.2-gstreamer-1.0 (>= 1.16.1), libgstreamer-plugins-bad1.0-0 (<< 1.17), libgstreamer-plugins-bad1.0-0 (>= 1.16.2)
+Filename: ./gir1.2-gst-plugins-bad-1.0_1.16.2-2.1ubuntu1+1yjwong2_amd64.deb
+Size: 96688
+MD5sum: 1db9afc510ec9c89aa4cb29408b99dcf
+SHA1: e35c945e3d97dd19f9cf8f657f489c0e031f4de4
+SHA256: f423b5cbf64484755871e161be3fa31b526ec6ae294613950651e3ead171e4d0
+Section: introspection
+Priority: extra
+Multi-Arch: same
+Homepage: https://gstreamer.freedesktop.org
+Description: GObject introspection data for the GStreamer libraries from the "bad" set
+ GStreamer is a streaming media framework, based on graphs of filters
+ which operate on media data.  Applications using this library can do
+ anything from real-time sound processing to playing videos, and just
+ about anything else media-related.  Its plugin-based architecture means
+ that new data types or processing capabilities can be added simply by
+ installing new plug-ins.
+ .
+ GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par compared
+ to the rest. They might be close to being good quality, but they're missing
+ something - be it a good code review, some documentation, a set of tests, a
+ real live maintainer, or some actual wide use.
+ .
+ This package contains introspection data for the GStreamer libraries from
+ the "bad" set. It can be used by packages using the GIRepository format to
+ generate dynamic bindings.
+Original-Maintainer: Maintainers of GStreamer packages <gst-plugins-bad1.0@packages.debian.org>
+
 Package: gstreamer1.0-opencv
 Source: gst-plugins-bad1.0
 Version: 1.16.2-2.1ubuntu1+1yjwong1
@@ -47,6 +81,43 @@ Size: 162800
 MD5sum: f01dd6f8c58dbd7826750d35ec5e3b68
 SHA1: 7e98bd543c5b95232ee340735db92032b05ef9dc
 SHA256: b1c1e98eeae710fa4c760573ca7ce276149672b979657d5694010f79834f21bd
+Section: libs
+Priority: extra
+Multi-Arch: same
+Homepage: https://gstreamer.freedesktop.org
+Description: GStreamer OpenCV plugins
+ GStreamer is a streaming media framework, based on graphs of filters
+ which operate on media data.  Applications using this library can do
+ anything from real-time sound processing to playing videos, and just
+ about anything else media-related.  Its plugin-based architecture means
+ that new data types or processing capabilities can be added simply by
+ installing new plug-ins.
+ .
+ GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par compared
+ to the rest. They might be close to being good quality, but they're missing
+ something - be it a good code review, some documentation, a set of tests, a
+ real live maintainer, or some actual wide use.
+ .
+ This package contains the OpenCV plugins.
+Gstreamer-Elements: cameracalibrate, cameraundistort, cvdilate, cvequalizehist, cverode, cvlaplace, cvsmooth, cvsobel, dewarp, disparity, edgedetect, faceblur, facedetect, grabcut, handdetect, motioncells, opencvtextoverlay, retinex, segmentation, skindetect, templatematch
+Gstreamer-Version: 1.16
+Original-Maintainer: Maintainers of GStreamer packages <gst-plugins-bad1.0@packages.debian.org>
+
+Package: gstreamer1.0-opencv
+Source: gst-plugins-bad1.0
+Version: 1.16.2-2.1ubuntu1+1yjwong2
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 427
+Depends: libc6 (>= 2.29), libgcc-s1 (>= 3.0), libglib2.0-0 (>= 2.40), libgstreamer-opencv1.0-0 (= 1.16.2-2.1ubuntu1+1yjwong2), libgstreamer-plugins-base1.0-0 (>= 1.16.2), libgstreamer1.0-0 (>= 1.16.1), libopencv-calib3d4.2 (>= 4.2.0+dfsg), libopencv-contrib4.2 (>= 4.2.0+dfsg), libopencv-core4.2 (>= 4.2.0+dfsg), libopencv-features2d4.2 (>= 4.2.0+dfsg), libopencv-imgcodecs4.2 (>= 4.2.0+dfsg), libopencv-imgproc4.2 (>= 4.2.0+dfsg), libopencv-objdetect4.2 (>= 4.2.0+dfsg), libopencv-video4.2 (>= 4.2.0+dfsg), libstdc++6 (>= 5.2), gstreamer1.0-plugins-base, libgstreamer-plugins-bad1.0-0 (= 1.16.2-2.1ubuntu1+1yjwong2)
+Recommends: opencv-data
+Conflicts: gstreamer1.0-plugins-bad (<< 1.13.1)
+Replaces: gstreamer1.0-plugins-bad (<< 1.13.1)
+Filename: ./gstreamer1.0-opencv_1.16.2-2.1ubuntu1+1yjwong2_amd64.deb
+Size: 162784
+MD5sum: c97d7ee11e8a736284afdfad07332f17
+SHA1: 5ef25f664e20432065caba06269656b3b86e00a2
+SHA256: 885b8a4bb895f92771dffeff9efd99d4e4409c67f306a94a1fe484b3f1db586f
 Section: libs
 Priority: extra
 Multi-Arch: same
@@ -110,6 +181,47 @@ Gstreamer-Uri-Sources: dvb, dvd, http, https, mms, mmsh, mmst, mmsu, rtmfp, rtmp
 Gstreamer-Version: 1.16
 Original-Maintainer: Maintainers of GStreamer packages <gst-plugins-bad1.0@packages.debian.org>
 
+Package: gstreamer1.0-plugins-bad
+Source: gst-plugins-bad1.0
+Version: 1.16.2-2.1ubuntu1+1yjwong2
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 7288
+Depends: libaom0 (>= 1.0.0), libass9 (>= 1:0.13.6), libbs2b0, libbz2-1.0, libc6 (>= 2.29), libcairo2 (>= 1.6.0), libchromaprint1 (>= 1.3.2), libcurl3-gnutls (>= 7.35.0), libdc1394-22 (>= 2.2.5), libdca0 (>= 0.0.5), libde265-0 (>= 0.8), libdrm2 (>= 2.4.47), libdvdnav4 (>= 4.1.3), libdvdread7 (>= 4.1.3), libfaad2 (>= 2.7), libflite1 (>= 1.4-release-9~), libfluidsynth2 (>= 2.0.5), libgcc-s1 (>= 3.0), libglib2.0-0 (>= 2.43.2), libgme0 (>= 0.6.0), libgsm1 (>= 1.0.18), libgstreamer-plugins-bad1.0-0 (= 1.16.2-2.1ubuntu1+1yjwong2), libgstreamer-plugins-base1.0-0 (>= 1.16.2), libgstreamer-plugins-good1.0-0, libgstreamer1.0-0 (>= 1.16.1), libgudev-1.0-0 (>= 146), libilmbase24 (>= 2.3.0), libkate1 (>= 0.4.1), liblcms2-2 (>= 2.7), libldacbt-enc2 (>= 2.0.2), liblilv-0-0 (>= 0.22.0~dfsg0), libmjpegutils-2.1-0, libmms0 (>= 0.4), libmodplug1 (>= 1:0.8.8.5), libmpcdec6 (>= 1:0.1~r435), libmpeg2encpp-2.1-0, libmplex2-2.1-0, libnettle7, libnice10 (>= 0.1.14), libofa0 (>= 0.9.3), libopenal1 (>= 1.14), libopenaptx0 (>= 0.2.0), libopenexr24 (>= 2.3.0), libopenjp2-7 (>= 2.0.0), libopenmpt0 (>= 0.3.0), libopus0 (>= 1.1), liborc-0.4-0 (>= 1:0.4.25), libpango-1.0-0 (>= 1.22.0), libpangocairo-1.0-0 (>= 1.22), librsvg2-2 (>= 2.36.2), librtmp1 (>= 2.3), libsbc1, libsndfile1 (>= 1.0.20), libsoundtouch1 (>= 2.0.0), libspandsp2 (>= 0.0.6~pre18), libsrt1 (>= 1.4.0), libsrtp2-1 (>= 2.0.0+20170516), libssl1.1 (>= 1.1.0), libstdc++6 (>= 5), libusb-1.0-0 (>= 2:1.0.8), libusrsctp1, libvo-aacenc0 (>= 0.1.3), libvo-amrwbenc0 (>= 0.1.3), libvulkan1 (>= 1.2.131.2), libwayland-client0 (>= 1.11.0), libwebp6 (>= 0.5.1), libwebrtc-audio-processing1, libwildmidi2 (>= 0.2.3), libx11-6, libx265-179 (>= 3.2), libxcb1, libxml2 (>= 2.9.0), libzbar0 (>= 0.10), libzvbi0 (>= 0.2.35), gstreamer1.0-plugins-base
+Suggests: frei0r-plugins
+Conflicts: gstreamer1.0-plugins-bad-faad (<< 1.11.91-1ubuntu1), gstreamer1.0-plugins-bad-videoparsers (<< 1.11.91-1ubuntu1)
+Breaks: gstreamer1.0-plugins-base (<< 0.11.94), gstreamer1.0-plugins-good (<< 1.1.2)
+Replaces: gstreamer1.0-plugins-bad-faad (<< 1.11.91-1ubuntu1), gstreamer1.0-plugins-bad-videoparsers (<< 1.11.91-1ubuntu1), gstreamer1.0-plugins-base (<< 0.11.94), gstreamer1.0-plugins-good (<< 1.1.2)
+Provides: gstreamer1.0-audiosink, gstreamer1.0-audiosource, gstreamer1.0-plugins-bad-faad, gstreamer1.0-plugins-bad-videoparsers, gstreamer1.0-videosink, gstreamer1.0-videosource, gstreamer1.0-visualization
+Filename: ./gstreamer1.0-plugins-bad_1.16.2-2.1ubuntu1+1yjwong2_amd64.deb
+Size: 1747628
+MD5sum: cadb9c3223f59d231e911039371b32b0
+SHA1: c61b43399a779f2fec68d461f8950939b1821bf5
+SHA256: 1cc12da5ddf57b24f46ab861169af950a89cac116327a16c21025138f589ca92
+Section: libs
+Priority: extra
+Multi-Arch: same
+Homepage: https://gstreamer.freedesktop.org
+Description: GStreamer plugins from the "bad" set
+ GStreamer is a streaming media framework, based on graphs of filters
+ which operate on media data.  Applications using this library can do
+ anything from real-time sound processing to playing videos, and just
+ about anything else media-related.  Its plugin-based architecture means
+ that new data types or processing capabilities can be added simply by
+ installing new plug-ins.
+ .
+ GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par compared
+ to the rest. They might be close to being good quality, but they're missing
+ something - be it a good code review, some documentation, a set of tests, a
+ real live maintainer, or some actual wide use.
+Gstreamer-Decoders: application/dash+xml; application/mxf; application/vnd.ms-sstr+xml; application/x-hls; application/x-yuv4mpeg, y4mversion=(int)2; audio/midi; audio/mpeg, mpegversion=(int)4, stream-format=(string){ raw, adts }; audio/mpeg, mpegversion=(int)2; audio/ms-gsm; audio/riff-midi; audio/x-adpcm, layout=(string){ microsoft, dvi }; audio/x-aiff; audio/x-ay; audio/x-dts; audio/x-gbs; audio/x-gsm; audio/x-gym; audio/x-hes; audio/x-ircam; audio/x-it; audio/x-kss; audio/x-midi-event; audio/x-mod; audio/x-musepack, streamversion=(int){ 7, 8 }; audio/x-nist; audio/x-nsf; audio/x-paris; audio/x-private1-dts; audio/x-rf64; audio/x-s3m; audio/x-sap; audio/x-sbc, parsed=(boolean)true; audio/x-sds; audio/x-siren, dct-length=(int)320; audio/x-spc; audio/x-stm; audio/x-svx; audio/x-vgm; audio/x-voc; audio/x-w64; audio/x-xi; audio/x-xm; image/jp2; image/png; image/svg; image/svg+xml; image/webp; image/x-exr; image/x-j2c; image/x-jpc; image/x-portable-anymap; image/x-portable-bitmap; image/x-portable-graymap; image/x-portable-pixmap; subtitle/x-kate; video/mpeg, mpegversion=(int){ 1, 2 }, systemstream=(boolean){ true, false }; video/mpeg, mpegversion=(int)4, systemstream=(boolean)false; video/mpegts, systemstream=(boolean)true; video/x-av1; video/x-cdxa; video/x-divx, divxversion=(int)[ 4, 5 ]; video/x-h263, variant=(string)itu; video/x-h264; video/x-h265; video/x-ivf; video/x-vmnc, version=(int)1
+Gstreamer-Elements: a2dpsink, accurip, adpcmdec, adpcmenc, aiffmux, aiffparse, asfmux, asfparse, assrender, audiobuffersplit, audiochannelmix, audiolatency, audiomixmatrix, audioparse, audiosegmentclip, autoconvert, autovideoconvert, av1dec, av1enc, avdtpsink, avdtpsrc, avwait, bayer2rgb, bpmdetect, bs2b, bulge, burn, bz2dec, bz2enc, cc708overlay, cccombiner, ccconverter, ccextractor, checksumsink, chopmydata, chromahold, chromaprint, chromium, circle, coloreffects, combdetect, compare, curlfilesink, curlftpsink, curlhttpsink, curlhttpsrc, curlsmtpsink, dashdemux, dc1394src, debugspy, decklinkaudiosink, decklinkaudiosrc, decklinkvideosink, decklinkvideosrc, diffuse, dilate, diracparse, dodge, dtlsdec, dtlsenc, dtlssrtpdec, dtlssrtpdemux, dtlssrtpenc, dtmfdetect, dtsdec, dvbbasebin, dvbsrc, dvbsuboverlay, dvdspu, errorignore, exclusion, faad, faceoverlay, fakevideosink, fbdevsink, festival, fieldanalysis, fisheye, flitetestsrc, fluiddec, fpsdisplaysink, freeverb, gaussianblur, gdpdepay, gdppay, gmedec, gsmdec, gsmenc, h263parse, h264parse, h265parse, hlsdemux, hlssink, hlssink2, id3mux, interaudiosink, interaudiosrc, interlace, intersubsink, intersubsrc, intervideosink, intervideosrc, ipcpipelinesink, ipcpipelinesrc, ipcslavepipeline, irtspparse, ivfparse, ivtc, jp2kdecimator, jpeg2000parse, kaleidoscope, katedec, kateenc, kateparse, katetag, kmssink, ladspa-amp-so-amp-mono, ladspa-amp-so-amp-stereo, ladspa-delay-so-delay-5s, ladspa-filter-so-hpf, ladspa-filter-so-lpf, ladspa-sine-so-sine-faaa, ladspa-sine-so-sine-faac, ladspa-sine-so-sine-fcaa, ladspasrc-noise-so-noise-white, ladspasrc-sine-so-sine-fcac, lcms, ldacenc, libde265dec, line21decoder, line21encoder, marble, midiparse, mirror, mmssrc, modplug, mpeg2enc, mpeg4videoparse, mpegpsdemux, mpegpsmux, mpegtsmux, mpegvideoparse, mplex, mssdemux, musepackdec, mxfdemux, mxfmux, netsim, ofa, openalsink, openalsrc, openaptxdec, openaptxenc, openexrdec, openjpegdec, openjpegenc, openmptdec, opusparse, pcapparse, perspective, pinch, pitch, pngparse, pnmdec, pnmenc, proxysink, proxysrc, removesilence, rfbsrc, rgb2bayer, rotate, rsndvdbin, rsvgdec, rsvgoverlay, rtmpsink, rtmpsrc, rtpasfpay, rtponvifparse, rtponviftimestamp, sbcdec, sbcenc, scenechange, sctpdec, sctpenc, sdpdemux, sdpsrc, sfdec, shmsink, shmsrc, simplevideomark, simplevideomarkdetect, sirendec, sirenenc, smooth, solarize, spacescope, spanplc, spectrascope, speed, sphere, square, srtclientsink, srtclientsrc, srtenc, srtpdec, srtpenc, srtserversink, srtserversrc, srtsink, srtsrc, stretch, synaescope, teletextdec, testsrcbin, timecodestamper, tonegeneratesrc, tsdemux, tsparse, ttmlparse, ttmlrender, tunnel, twirl, uvch264mjpgdemux, uvch264src, vc1parse, videoanalyse, videodiff, videoframe-audiolevel, videoparse, videosegmentclip, vmncdec, voaacenc, voamrwbenc, vulkansink, vulkanupload, watchdog, waterripple, wavescope, waylandsink, webpdec, webpenc, webrtcbin, webrtcdsp, webrtcechoprobe, webvttenc, wildmididec, x265enc, y4mdec, yadif, zbar, zebrastripe
+Gstreamer-Encoders: application/mxf; application/x-bzip; application/x-dtls; application/x-gdp; application/x-kate; application/x-rtp, media=(string){ audio, video, application }, encoding-name=(string)X-ASF-PF; application/x-sctp; application/x-subtitle; application/x-subtitle-vtt; audio/AMR-WB; audio/aptx; audio/aptx-hd; audio/mpeg, mpegversion=(int)4, stream-format=(string){ adts, raw }, base-profile=(string)lc; audio/x-adpcm, layout=(string)dvi; audio/x-aiff; audio/x-gsm; audio/x-ldac, channel-mode=(string){ mono, dual, stereo }; audio/x-sbc, channel-mode=(string){ mono, dual, stereo, joint }, blocks=(int){ 4, 8, 12, 16 }, subbands=(int){ 4, 8 }, allocation-method=(string){ snr, loudness }, bitpool=(int)[ 2, 64 ]; audio/x-siren, dct-length=(int)320; image/jp2; image/webp; image/x-j2c, num-components=(int)[ 1, 4 ], sampling=(string){ RGB, BGR, RGBA, BGRA, YCbCr-4:4:4, YCbCr-4:2:2, YCbCr-4:2:0, YCbCr-4:1:1, GRAYSCALE, YCbCrA-4:4:4:4 }, colorspace=(string){ sRGB, sYUV, GRAY }; image/x-jpc, num-components=(int)[ 1, 4 ], sampling=(string){ RGB, BGR, RGBA, BGRA, YCbCr-4:4:4, YCbCr-4:2:2, YCbCr-4:2:0, YCbCr-4:1:1, GRAYSCALE, YCbCrA-4:4:4:4 }, colorspace=(string){ sRGB, sYUV, GRAY }; image/x-portable-anymap; image/x-portable-bitmap; image/x-portable-graymap; image/x-portable-pixmap; subtitle/x-kate; video/mpeg, systemstream=(boolean)false, mpegversion=(int){ 1, 2 }; video/mpeg, systemstream=(boolean)true; video/mpegts, systemstream=(boolean)true, packetsize=(int){ 188, 192 }; video/x-av1; video/x-h265, stream-format=(string)byte-stream, alignment=(string)au, profile=(string){ main }; video/x-ms-asf, parsed=(boolean)true
+Gstreamer-Uri-Sinks: rtmfp, rtmp, rtmpe, rtmps, rtmpt, rtmpte, rtmpts, srt
+Gstreamer-Uri-Sources: dvb, dvd, http, https, mms, mmsh, mmst, mmsu, rtmfp, rtmp, rtmpe, rtmps, rtmpt, rtmpte, rtmpts, sdp, srt, testbin
+Gstreamer-Version: 1.16
+Original-Maintainer: Maintainers of GStreamer packages <gst-plugins-bad1.0@packages.debian.org>
+
 Package: gstreamer1.0-plugins-bad-dbg
 Source: gst-plugins-bad1.0
 Version: 1.16.2-2.1ubuntu1+1yjwong1
@@ -143,6 +255,39 @@ Description: GStreamer plugins from the "bad" set (debug symbols)
 Build-Ids: 00596563228ce9988293e88a1df245f1a75ef3bd 00974cea4e7c993a7f5f4fd4eab51ab042574075 04c98e6c1c2e9e40fd3d2ab5d13f53b68b9de4fa 061fef325bd1e17ca752d133f1899f27d6d092fb 06609666634cb0361c6812ca0b08af372865fa0c 0c4e5e766060bac2f5b913744777901b0eb3b2ff 126b49838c5502ba14fe049e74eec3b3db55cf06 1274b7b76f3c8b2dd8927b4d1577b6f615da66b6 12c16c07601b2b218246109fdac210852022cfd4 153558d9d83c6eddacbb67c0c3d34f63a7e29c68 17db9ee5a49988c4b16edec57d18345e36ed2da6 1a2e41b5d9665b9868348f5aa021943f4db71778 224cc15c839e7fa378cc8c4266e58331e163bf38 233f4179785dfe24e23beb58af8fce27ad5ca11f 24a2d1e3f6fe470656066b593630a5aacd5f981d 24f14437709ea1b991172fe23d1662d7e343fe13 2c93141f830443a0907e2e917529ac7400f4df25 2d01a95eb788279e88aacf1a35760803879aca09 313d2f763b9283c788c323f96aba6ac6593e1463 31b8a064e0ce740646ed80606e15535de0265f8f 356fd7f4c40eff4ecd37b68e4fd8c9f15cd8c87f 3a5ecbef5ac2678f1ca65f820a47aeea2806595a 3e6070c862a8841f5404e50656f76fa87951d3cb 419c610417b3fcad14535ce8c44ff5ffc3b286d1 43d7a6e30d988b1d4d71280e7e11e9a81a639da9 48b412cc229bede6ef1e365e26c22ef4336f4b9f 4a84c9a2271bc31e89da737b939ff6a77a34785a 4af51bc98366cc5034ef7d3a3d32e499653fc9c6 4fc0d194796261f7bc5814d039a67308398cd20b 4fd8ac90195141d560221201de6ae1a0cc4667b9 51699592dffffe824b4a14982d2dc0a537219351 55b19fc9677cad21ca491051f9f82fab303defbf 5715934ab1b52438432a2d2dd72e6dac165b5702 5898fdf2a27d866bf7de3c20c7a5dd62100c8adc 5acd3fa4e715d045475695035768b83507e492e8 5cebc127374a0619e921c78ae4b3b38b3ef01a89 5e00559101d6c99da467ee42249f0f23a920ad01 5f66f97fd18e2a0429d7a8752c9a07b0d4c0a87d 60815d523d5866bee7d80b5aa457c27a219324fe 6082b3e0c608318cee45426de58fba79f1aa89f5 646cf7d3edf20e9f02f2e8f56ceb6c902ce166d8 65b5ae482ef6d0a6d837946b1ae40e5b9346a2a8 664d0f1736e95d2789f7f7620b3eb2fcdb1d9de8 67389e36034ace2d20c49ceaec33b5daa8f10a14 68ee5b78b142362c2974a8a81629b2066322a6c8 68fbe735edd525869bd273952199f4f93aaa6b21 6b923101530ab4c625ba343d5c8b01514c4aec6a 6d335ab5706327161adb537e41c4b59eeb985950 6ef0bd79a89c44620b0700f70ba68a13e45b3e68 701990b997f35409f5d77b96751cc9661d0f8e88 70d9adca0aeeabbc44cb22bc023f8231ac400dc0 71cf6104a7f691d9c53d58ffd9cf2475f99e668a 7315c6e0b5e9fa62e4aa492be0948d7831f2a4f7 73711a6a2a996da442d8080f53414c66b73066c7 7b279b4fa142e50f5d061e730a3da19baf6f120d 7c448889c3cf13a7fb5901c9a3e708d580620c51 7f708f367a1498b48707380b1188b0365457e7d0 804e9c34bd5f03ff41423fad7b37cc498c9925be 808dac2debff287cf5aa25df9711a2839392d9df 813335244bef0b8c3a1298abd694823415aee1d5 81df2d8644d7a515ddf0117663f5fab571cf5054 8301684813b243ef59120653302d3a1f78d615e7 893f63c51dcbcbb261ebb8d6c1282b9086d51876 89433aea04c046984df3661233b5ada7b8f17c90 894d25fa3a02f27db6214b2d10936cb96dee2b96 8c73620d05f28dedb4d46adbed1faedd8bef2713 8d0366a39a5cbb57d02829d23b3d80ed42163f39 90bb523392faafbd72835c5bcdefc75a84dd8949 958eeb722ef4105e1f1f9afb1faeb12f3e22dc6f 965147eb7243fcf10ac6b142fbfe58cd91665cb4 9b285edb410525d7f73a947562d19be7019b98d3 9d38afe987c69604b734d371d51024398bfc90b4 9f22b2e4864f509f46e0528f788f58fd030896f6 a2ec1ab827503df21596c16f3dd25110c3c95665 a4cbbf1cdb4128859b8dd2349aeebcef7123feee a7114934e8eb5c5ffeeea35a2bfe56e5a019bc7e ab86b4acb717bce220ef6941ed0b3e62cc2a48e6 ad25638a8f46e33b2a3343ff71455275a8d8b754 afb6512f6e2c8033251c6c49f2421afb516ec842 b19eb2d474f5f927c0cc99586fb6600af231d4a5 b70d24352aface2e5b98878ee6065ea39daa03d9 b8d087bdfb36626c981c4f9607c85310ea26ea1c b9e63da27ebee30a20ba79aa54c90e8133baf1b8 bbda810d441c6224627c9f5c545ee38f7fba304f beb9a54a3f5742da48da29005fbec7599c737591 bf611b5a030efce8907d72236cbc83393bdbe29c c31e3dcedfb7480508d205e48475421c89f22023 c3b7a422b62cc6846b303e726e886a8c0d18abb4 c3c17bc46a9850feab778ab102276c2d25bee8e4 c45a693b01d80b33906bccedadaa0bcb74dc41fb c5616c34870974e9b6a7cc8836e32bca06b095c1 c593f16745b9d00709bef009f786487ce36b0c74 c6362188f802a6ac0114f31e6e677232dd2af5ef c7a5b4b7b34319bf7a0f0028ba5bde228083acf0 c82a699be0f0b6d83171555b8a4e4f07c44027eb ca13a3e7434752a60aaee51b8868cdbb56750f37 cde6521e09b7b14826b906726a6833cf9a2723ee d3ac9e62531a1724fc9bdfd3dbc8279561a32b7b d429028161dc843feb434e0da677d74455805b8e d5c76604c47341d4f9d7669c461b0c0bc8489728 dbd552eb1bf6756ecc0f04e3b08eb75e242c5ad9 dcbe0fb2b08ddf7a6bee5a62c09ca930b8468727 dcbe8aa7d90ecfcaf1f25766c8702ff90bcdd7b7 dcd950e36340392cf58060f0d06e6e0b8c8a1af6 dd1673d83419f482ec650c8bb3faa6a114a7250a deb133ffd7a1b52fc3f43045257b33455b2d937d e264bf23a02a5c6297324c95d18e36d3ae5eaac6 e2a667e8716e0b1062998b63011e4e7a61fcad3a e37d3e453f7b110ac2135794cb7a48b9b0a804fe e4c7d42261386112e86b3962f573c387968926c8 e6020e712d8577cb48b54c4c7e3d9672d3baab30 eb02c9f593fe2b412f6287a7265386fdd701a41c eb1a6622b3ea9457792e927dd48c4f208df90942 ecd32a8dba356c203720c4f06185c1b20d40683b f34a1ee71753d0426a19e5f3f8b530705e6e6bef f62312aee30a9084f07e08cf606e007f1f124b45 f67b7f8263a3b4100a0e25eaa14a1f5e779b9c3b f95df108669cb19da931de9a9c7da6fe9a34c343 f9d1a85e733eb19d8b5af31641dd09485d6bf6cc fa5ddfa379ef544bbdce56ee4ebb87693dec1b55 fa696863c8869483ca3da22fa118289d10adabf8 fa95457564b8982777d1804da5b6e79f5da9e1a3 fbbe404e05ae50ebbe9f342e4874967ef4c0a541 2b8add539dd33df7244bbfe38e2d6b60a6f03a20 610803eb60be39e1a6410ae6a7572c369691c532 6579efbccf8d8e2fc45c3f2918bb12f3e775cf46 6c426d7307e4f36b2a2670928806498c47ca3328 75f518cb862fc93244703db0cc8c3e6e34896e8c 83899ffe3f8ccea4f82b5159e7f58d11b0a8a980 86849bf563cf112a68047275ae7353185173a283 943f7062ac2e073ab369f807c05488cfe0f967d1 96ce1938570475d5269f79433767d9a5697888d2 c57ff3844fff81586580fcef7f0379b3f0f92cee ccabd9b3c0efe276a180f01fef3fcabf8c003485 d905e4485ae4bbef668591ff3186000d7072c050 04e6abfcbb2c4d18e4531ac3365580b5a96f56a9
 Original-Maintainer: Maintainers of GStreamer packages <gst-plugins-bad1.0@packages.debian.org>
 
+Package: gstreamer1.0-plugins-bad-dbg
+Source: gst-plugins-bad1.0
+Version: 1.16.2-2.1ubuntu1+1yjwong2
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 14342
+Depends: gstreamer1.0-plugins-bad (= 1.16.2-2.1ubuntu1+1yjwong2)
+Breaks: gstreamer1.0-plugins-base-dbg (<< 0.11.94), gstreamer1.0-plugins-good (<< 1.1.2)
+Replaces: gstreamer1.0-plugins-base-dbg (<< 0.11.94), gstreamer1.0-plugins-good (<< 1.1.2)
+Filename: ./gstreamer1.0-plugins-bad-dbg_1.16.2-2.1ubuntu1+1yjwong2_amd64.deb
+Size: 12491088
+MD5sum: d70154d32c9b1fb287084a0c160e4584
+SHA1: 3bb12522173e424b06958a48f72493b673dc645a
+SHA256: a8397f6d29e846e36f266f70e0d073b814d6f9821516875319443f33093d691a
+Section: debug
+Priority: extra
+Multi-Arch: same
+Homepage: https://gstreamer.freedesktop.org
+Description: GStreamer plugins from the "bad" set (debug symbols)
+ GStreamer is a streaming media framework, based on graphs of filters
+ which operate on media data.  Applications using this library can do
+ anything from real-time sound processing to playing videos, and just
+ about anything else media-related.  Its plugin-based architecture means
+ that new data types or processing capabilities can be added simply by
+ installing new plug-ins.
+ .
+ This package contains unstripped shared libraries. It is provided primarily
+ to provide a backtrace with names in a debugger, this makes it somewhat
+ easier to interpret core dumps. The libraries are installed in
+ /usr/lib/debug and are automatically used by gdb.
+Build-Ids: 00596563228ce9988293e88a1df245f1a75ef3bd 00974cea4e7c993a7f5f4fd4eab51ab042574075 04c98e6c1c2e9e40fd3d2ab5d13f53b68b9de4fa 061fef325bd1e17ca752d133f1899f27d6d092fb 06609666634cb0361c6812ca0b08af372865fa0c 092eaf10c7288e49aaf76d8a5ae99d1cc41287bb 0c4e5e766060bac2f5b913744777901b0eb3b2ff 126b49838c5502ba14fe049e74eec3b3db55cf06 1274b7b76f3c8b2dd8927b4d1577b6f615da66b6 12c16c07601b2b218246109fdac210852022cfd4 153558d9d83c6eddacbb67c0c3d34f63a7e29c68 17db9ee5a49988c4b16edec57d18345e36ed2da6 1a2e41b5d9665b9868348f5aa021943f4db71778 224cc15c839e7fa378cc8c4266e58331e163bf38 232efb90fef6714de559803d087cadfc60ff1505 233f4179785dfe24e23beb58af8fce27ad5ca11f 24a2d1e3f6fe470656066b593630a5aacd5f981d 24f14437709ea1b991172fe23d1662d7e343fe13 2c93141f830443a0907e2e917529ac7400f4df25 2d01a95eb788279e88aacf1a35760803879aca09 313d2f763b9283c788c323f96aba6ac6593e1463 31b8a064e0ce740646ed80606e15535de0265f8f 356fd7f4c40eff4ecd37b68e4fd8c9f15cd8c87f 3a5ecbef5ac2678f1ca65f820a47aeea2806595a 3e6070c862a8841f5404e50656f76fa87951d3cb 419c610417b3fcad14535ce8c44ff5ffc3b286d1 43d7a6e30d988b1d4d71280e7e11e9a81a639da9 48b412cc229bede6ef1e365e26c22ef4336f4b9f 4a84c9a2271bc31e89da737b939ff6a77a34785a 4af51bc98366cc5034ef7d3a3d32e499653fc9c6 4fc0d194796261f7bc5814d039a67308398cd20b 4fd8ac90195141d560221201de6ae1a0cc4667b9 51699592dffffe824b4a14982d2dc0a537219351 55b19fc9677cad21ca491051f9f82fab303defbf 5715934ab1b52438432a2d2dd72e6dac165b5702 5898fdf2a27d866bf7de3c20c7a5dd62100c8adc 5acd3fa4e715d045475695035768b83507e492e8 5cebc127374a0619e921c78ae4b3b38b3ef01a89 5e00559101d6c99da467ee42249f0f23a920ad01 5f66f97fd18e2a0429d7a8752c9a07b0d4c0a87d 60815d523d5866bee7d80b5aa457c27a219324fe 6082b3e0c608318cee45426de58fba79f1aa89f5 646cf7d3edf20e9f02f2e8f56ceb6c902ce166d8 65b5ae482ef6d0a6d837946b1ae40e5b9346a2a8 664d0f1736e95d2789f7f7620b3eb2fcdb1d9de8 67389e36034ace2d20c49ceaec33b5daa8f10a14 68ee5b78b142362c2974a8a81629b2066322a6c8 68fbe735edd525869bd273952199f4f93aaa6b21 6b923101530ab4c625ba343d5c8b01514c4aec6a 6d335ab5706327161adb537e41c4b59eeb985950 6ef0bd79a89c44620b0700f70ba68a13e45b3e68 701990b997f35409f5d77b96751cc9661d0f8e88 70d9adca0aeeabbc44cb22bc023f8231ac400dc0 71cf6104a7f691d9c53d58ffd9cf2475f99e668a 7315c6e0b5e9fa62e4aa492be0948d7831f2a4f7 73711a6a2a996da442d8080f53414c66b73066c7 7b279b4fa142e50f5d061e730a3da19baf6f120d 7c448889c3cf13a7fb5901c9a3e708d580620c51 7f708f367a1498b48707380b1188b0365457e7d0 804e9c34bd5f03ff41423fad7b37cc498c9925be 808dac2debff287cf5aa25df9711a2839392d9df 813335244bef0b8c3a1298abd694823415aee1d5 81df2d8644d7a515ddf0117663f5fab571cf5054 8301684813b243ef59120653302d3a1f78d615e7 893f63c51dcbcbb261ebb8d6c1282b9086d51876 89433aea04c046984df3661233b5ada7b8f17c90 894d25fa3a02f27db6214b2d10936cb96dee2b96 8c73620d05f28dedb4d46adbed1faedd8bef2713 8d0366a39a5cbb57d02829d23b3d80ed42163f39 90bb523392faafbd72835c5bcdefc75a84dd8949 958eeb722ef4105e1f1f9afb1faeb12f3e22dc6f 965147eb7243fcf10ac6b142fbfe58cd91665cb4 9d38afe987c69604b734d371d51024398bfc90b4 9f22b2e4864f509f46e0528f788f58fd030896f6 a2ec1ab827503df21596c16f3dd25110c3c95665 a4cbbf1cdb4128859b8dd2349aeebcef7123feee a7114934e8eb5c5ffeeea35a2bfe56e5a019bc7e ab86b4acb717bce220ef6941ed0b3e62cc2a48e6 ad25638a8f46e33b2a3343ff71455275a8d8b754 afb6512f6e2c8033251c6c49f2421afb516ec842 b19eb2d474f5f927c0cc99586fb6600af231d4a5 b70d24352aface2e5b98878ee6065ea39daa03d9 b8d087bdfb36626c981c4f9607c85310ea26ea1c b9e63da27ebee30a20ba79aa54c90e8133baf1b8 bbda810d441c6224627c9f5c545ee38f7fba304f beb9a54a3f5742da48da29005fbec7599c737591 bf611b5a030efce8907d72236cbc83393bdbe29c c31e3dcedfb7480508d205e48475421c89f22023 c3b7a422b62cc6846b303e726e886a8c0d18abb4 c3c17bc46a9850feab778ab102276c2d25bee8e4 c45a693b01d80b33906bccedadaa0bcb74dc41fb c5616c34870974e9b6a7cc8836e32bca06b095c1 c593f16745b9d00709bef009f786487ce36b0c74 c6362188f802a6ac0114f31e6e677232dd2af5ef c7a5b4b7b34319bf7a0f0028ba5bde228083acf0 c82a699be0f0b6d83171555b8a4e4f07c44027eb ca13a3e7434752a60aaee51b8868cdbb56750f37 cde6521e09b7b14826b906726a6833cf9a2723ee d3ac9e62531a1724fc9bdfd3dbc8279561a32b7b d429028161dc843feb434e0da677d74455805b8e d5c76604c47341d4f9d7669c461b0c0bc8489728 dbd552eb1bf6756ecc0f04e3b08eb75e242c5ad9 dcbe0fb2b08ddf7a6bee5a62c09ca930b8468727 dcbe8aa7d90ecfcaf1f25766c8702ff90bcdd7b7 dcd950e36340392cf58060f0d06e6e0b8c8a1af6 dd1673d83419f482ec650c8bb3faa6a114a7250a deb133ffd7a1b52fc3f43045257b33455b2d937d e264bf23a02a5c6297324c95d18e36d3ae5eaac6 e2a667e8716e0b1062998b63011e4e7a61fcad3a e37d3e453f7b110ac2135794cb7a48b9b0a804fe e4c7d42261386112e86b3962f573c387968926c8 e6020e712d8577cb48b54c4c7e3d9672d3baab30 eb02c9f593fe2b412f6287a7265386fdd701a41c eb1a6622b3ea9457792e927dd48c4f208df90942 ecd32a8dba356c203720c4f06185c1b20d40683b f34a1ee71753d0426a19e5f3f8b530705e6e6bef f62312aee30a9084f07e08cf606e007f1f124b45 f67b7f8263a3b4100a0e25eaa14a1f5e779b9c3b f95df108669cb19da931de9a9c7da6fe9a34c343 f9d1a85e733eb19d8b5af31641dd09485d6bf6cc fa5ddfa379ef544bbdce56ee4ebb87693dec1b55 fa696863c8869483ca3da22fa118289d10adabf8 fa95457564b8982777d1804da5b6e79f5da9e1a3 fbbe404e05ae50ebbe9f342e4874967ef4c0a541 2b8add539dd33df7244bbfe38e2d6b60a6f03a20 610803eb60be39e1a6410ae6a7572c369691c532 6579efbccf8d8e2fc45c3f2918bb12f3e775cf46 6c426d7307e4f36b2a2670928806498c47ca3328 75f518cb862fc93244703db0cc8c3e6e34896e8c 83899ffe3f8ccea4f82b5159e7f58d11b0a8a980 86849bf563cf112a68047275ae7353185173a283 943f7062ac2e073ab369f807c05488cfe0f967d1 96ce1938570475d5269f79433767d9a5697888d2 c57ff3844fff81586580fcef7f0379b3f0f92cee ccabd9b3c0efe276a180f01fef3fcabf8c003485 d905e4485ae4bbef668591ff3186000d7072c050 04e6abfcbb2c4d18e4531ac3365580b5a96f56a9
+Original-Maintainer: Maintainers of GStreamer packages <gst-plugins-bad1.0@packages.debian.org>
+
 Package: gstreamer1.0-plugins-bad-doc
 Source: gst-plugins-bad1.0
 Version: 1.16.2-2.1ubuntu1+1yjwong1
@@ -155,6 +300,38 @@ Size: 386844
 MD5sum: f75075bdbe9f6c1d7e98e09f2743118f
 SHA1: fef74da84e7d36b03a523f08666355d2f548a3d1
 SHA256: 64bc8bb14062c2e96e6b9f2a17ff141c893e03901d359c69aa586f9975858073
+Section: doc
+Priority: extra
+Multi-Arch: foreign
+Homepage: https://gstreamer.freedesktop.org
+Description: GStreamer documentation for plugins from the "bad" set
+ GStreamer is a streaming media framework, based on graphs of filters
+ which operate on media data.  Applications using this library can do
+ anything from real-time sound processing to playing videos, and just
+ about anything else media-related.  Its plugin-based architecture means
+ that new data types or processing capabilities can be added simply by
+ installing new plug-ins.
+ .
+ GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par compared
+ to the rest. They might be close to being good quality, but they're missing
+ something - be it a good code review, some documentation, a set of tests, a
+ real live maintainer, or some actual wide use.
+ .
+ This package contains the documentation for plugins from the "bad" set.
+Original-Maintainer: Maintainers of GStreamer packages <gst-plugins-bad1.0@packages.debian.org>
+
+Package: gstreamer1.0-plugins-bad-doc
+Source: gst-plugins-bad1.0
+Version: 1.16.2-2.1ubuntu1+1yjwong2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 5951
+Depends: gstreamer1.0-doc, gstreamer1.0-plugins-base-doc
+Filename: ./gstreamer1.0-plugins-bad-doc_1.16.2-2.1ubuntu1+1yjwong2_all.deb
+Size: 386844
+MD5sum: 91ae0d48edad8336ff2214432d45581b
+SHA1: 22278cf5450c4b27fd070fde06ffd8c2ac450f83
+SHA256: 51baaf8823246c6af38f0bbb7bd86f0f3156634b42d545d0304949a5df73a26b
 Section: doc
 Priority: extra
 Multi-Arch: foreign
@@ -209,6 +386,40 @@ Description: GStreamer OpenCV libraries
  This package contains shared GStreamer libraries for OpenCV.
 Original-Maintainer: Maintainers of GStreamer packages <gst-plugins-bad1.0@packages.debian.org>
 
+Package: libgstreamer-opencv1.0-0
+Source: gst-plugins-bad1.0
+Version: 1.16.2-2.1ubuntu1+1yjwong2
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 173
+Depends: libc6 (>= 2.4), libgcc-s1 (>= 3.0), libglib2.0-0 (>= 2.40), libgstreamer-plugins-base1.0-0 (>= 1.16.2), libgstreamer1.0-0 (>= 1.16.1), libopencv-core4.2 (>= 4.2.0+dfsg), libstdc++6 (>= 4.1.1)
+Conflicts: libgstreamer-plugins-bad1.0-0 (<< 1.13.1)
+Replaces: libgstreamer-plugins-bad1.0-0 (<< 1.13.1)
+Filename: ./libgstreamer-opencv1.0-0_1.16.2-2.1ubuntu1+1yjwong2_amd64.deb
+Size: 80016
+MD5sum: 476c83a2c69ddfa233bb014c368b717b
+SHA1: fdad66474d0e65b0e777f1dd5b955aa6ca592669
+SHA256: eb7acc4322ea3090c99053222db362d28380398ef3720f842b5c4ca8a9899ec6
+Section: libs
+Priority: extra
+Multi-Arch: same
+Homepage: https://gstreamer.freedesktop.org
+Description: GStreamer OpenCV libraries
+ GStreamer is a streaming media framework, based on graphs of filters
+ which operate on media data.  Applications using this library can do
+ anything from real-time sound processing to playing videos, and just
+ about anything else media-related.  Its plugin-based architecture means
+ that new data types or processing capabilities can be added simply by
+ installing new plug-ins.
+ .
+ GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par compared
+ to the rest. They might be close to being good quality, but they're missing
+ something - be it a good code review, some documentation, a set of tests, a
+ real live maintainer, or some actual wide use.
+ .
+ This package contains shared GStreamer libraries for OpenCV.
+Original-Maintainer: Maintainers of GStreamer packages <gst-plugins-bad1.0@packages.debian.org>
+
 Package: libgstreamer-plugins-bad1.0-0
 Source: gst-plugins-bad1.0
 Version: 1.16.2-2.1ubuntu1+1yjwong1
@@ -242,6 +453,39 @@ Description: GStreamer libraries from the "bad" set
  is not guaranteed to be stable.
 Original-Maintainer: Maintainers of GStreamer packages <gst-plugins-bad1.0@packages.debian.org>
 
+Package: libgstreamer-plugins-bad1.0-0
+Source: gst-plugins-bad1.0
+Version: 1.16.2-2.1ubuntu1+1yjwong2
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 1080
+Depends: libc6 (>= 2.29), libglib2.0-0 (>= 2.40), libgstreamer-plugins-base1.0-0 (>= 1.16.2), libgstreamer1.0-0 (>= 1.16.1)
+Filename: ./libgstreamer-plugins-bad1.0-0_1.16.2-2.1ubuntu1+1yjwong2_amd64.deb
+Size: 343940
+MD5sum: 23d3bc7c587af4e5b82404afcb6f2278
+SHA1: 184a526221f2980e033a11b2b5404ea00f52a0ea
+SHA256: d0ae0fd09fecb987f4c3692549ba37a753881d0ef81d49732e324a0ac5fc043c
+Section: libs
+Priority: extra
+Multi-Arch: same
+Homepage: https://gstreamer.freedesktop.org
+Description: GStreamer libraries from the "bad" set
+ GStreamer is a streaming media framework, based on graphs of filters
+ which operate on media data.  Applications using this library can do
+ anything from real-time sound processing to playing videos, and just
+ about anything else media-related.  Its plugin-based architecture means
+ that new data types or processing capabilities can be added simply by
+ installing new plug-ins.
+ .
+ GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par compared
+ to the rest. They might be close to being good quality, but they're missing
+ something - be it a good code review, some documentation, a set of tests, a
+ real live maintainer, or some actual wide use.
+ .
+ This package contains shared GStreamer libraries from the "bad" set. The API
+ is not guaranteed to be stable.
+Original-Maintainer: Maintainers of GStreamer packages <gst-plugins-bad1.0@packages.debian.org>
+
 Package: libgstreamer-plugins-bad1.0-dev
 Source: gst-plugins-bad1.0
 Version: 1.16.2-2.1ubuntu1+1yjwong1
@@ -254,6 +498,39 @@ Size: 175596
 MD5sum: a04dd75b971b51c5649f30191786a289
 SHA1: 1bec93d16d70afe193955ef98c17ba9e15c98dd1
 SHA256: 3c770ec5f2d935313ce3dbca9770c95d459f7bee41228d57397d4b05b6d57edf
+Section: libdevel
+Priority: extra
+Multi-Arch: same
+Homepage: https://gstreamer.freedesktop.org
+Description: GStreamer development files for libraries from the "bad" set
+ GStreamer is a streaming media framework, based on graphs of filters
+ which operate on media data.  Applications using this library can do
+ anything from real-time sound processing to playing videos, and just
+ about anything else media-related.  Its plugin-based architecture means
+ that new data types or processing capabilities can be added simply by
+ installing new plug-ins.
+ .
+ GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par compared
+ to the rest. They might be close to being good quality, but they're missing
+ something - be it a good code review, some documentation, a set of tests, a
+ real live maintainer, or some actual wide use.
+ .
+ This package contains development files for GStreamer libraries from the
+ "bad" set. The API is not guaranteed to be stable.
+Original-Maintainer: Maintainers of GStreamer packages <gst-plugins-bad1.0@packages.debian.org>
+
+Package: libgstreamer-plugins-bad1.0-dev
+Source: gst-plugins-bad1.0
+Version: 1.16.2-2.1ubuntu1+1yjwong2
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 1142
+Depends: libgstreamer-plugins-bad1.0-0 (= 1.16.2-2.1ubuntu1+1yjwong2), libgstreamer-opencv1.0-0 (= 1.16.2-2.1ubuntu1+1yjwong2), libgstreamer1.0-dev, libgstreamer-plugins-base1.0-dev, libgstreamer-plugins-good1.0-dev, gir1.2-gst-plugins-bad-1.0 (= 1.16.2-2.1ubuntu1+1yjwong2), libopencv-dev (>= 2.3.0)
+Filename: ./libgstreamer-plugins-bad1.0-dev_1.16.2-2.1ubuntu1+1yjwong2_amd64.deb
+Size: 175564
+MD5sum: 1d26f6ff7999c474d323597c4bf8d858
+SHA1: 43c36efc8de96235d18076f5f3e3a72fbc037c91
+SHA256: 02da17eb71e0d01d462908962870445ee54c8680d00c8a837c0c8596563ed3c2
 Section: libdevel
 Priority: extra
 Multi-Arch: same
@@ -389,6 +666,52 @@ Description: LDAC Bluetooth encoder library (shared library)
  .
  This package ships the shared LDAC Bluetooth encoder library.
 
+Package: libopenaptx-dev
+Source: libopenaptx
+Version: 0.2.0-5
+Architecture: amd64
+Maintainer: Didier Raboud <odyx@debian.org>
+Installed-Size: 47
+Depends: libopenaptx0 (= 0.2.0-5)
+Filename: ./libopenaptx-dev_0.2.0-5_amd64.deb
+Size: 15288
+MD5sum: dec77535d5ade7874f2e0004515d6e8d
+SHA1: b8d029fab73b7e848bc9a8abf952370111b735dc
+SHA256: ab2c85d0b850517155419ccd3ccf6a13c00d4671799e20157c19e8b7555399a6
+Section: libdevel
+Priority: optional
+Multi-Arch: same
+Homepage: https://github.com/pali/libopenaptx
+Description: Audio Processing Technology codec (aptX), development headers
+ Support for aptX and aptX HD codec variants; they both operate on raw 24-bit
+ signed stereo audio sample; at 6:1 fixed compress ratio for aptX; at 4:1 fixed
+ compress ratio for aptX HD.
+ .
+ This package contains the development headers.
+
+Package: libopenaptx0
+Source: libopenaptx
+Version: 0.2.0-5
+Architecture: amd64
+Maintainer: Didier Raboud <odyx@debian.org>
+Installed-Size: 42
+Depends: libc6 (>= 2.4)
+Filename: ./libopenaptx0_0.2.0-5_amd64.deb
+Size: 14024
+MD5sum: 89c0a92396177f9659b6b2ef2d073aa7
+SHA1: 79ab57963b729c88371ee841219235232b2ec366
+SHA256: 3fac1efa93bf231f38d7c961d747d6291718830c08ce411a07827763dafadf4c
+Section: libs
+Priority: optional
+Multi-Arch: same
+Homepage: https://github.com/pali/libopenaptx
+Description: Audio Processing Technology codec (aptX), shared libraries
+ Support for aptX and aptX HD codec variants; they both operate on raw 24-bit
+ signed stereo audio sample; at 6:1 fixed compress ratio for aptX; at 4:1 fixed
+ compress ratio for aptX HD.
+ .
+ This package contains the shared libraries.
+
 Package: libpulse-dev
 Source: pulseaudio
 Version: 1:14.2.99-1
@@ -491,6 +814,28 @@ Description: PulseAudio OSS pre-load library
  This package provides the pre-load library used to redirect applications
  using OSS through pulseaudio.
 Original-Maintainer: Pulseaudio maintenance team <pkg-pulseaudio-devel@lists.alioth.debian.org>
+
+Package: openaptx-utils
+Source: libopenaptx
+Version: 0.2.0-5
+Architecture: amd64
+Maintainer: Didier Raboud <odyx@debian.org>
+Installed-Size: 44
+Depends: libc6 (>= 2.4), libopenaptx0 (>= 0.2.0)
+Filename: ./openaptx-utils_0.2.0-5_amd64.deb
+Size: 8504
+MD5sum: f9ec73b99eed631aa7c5f45388c10097
+SHA1: 84411fd786095cdc614f6077f183ada15584e7bc
+SHA256: c7cf0cb95fcb35f954b6d7ceb7962b61cb4ebf551e58312babec56c118102948
+Section: sound
+Priority: optional
+Homepage: https://github.com/pali/libopenaptx
+Description: Audio Processing Technology codec (aptX), tools
+ Support for aptX and aptX HD codec variants; they both operate on raw 24-bit
+ signed stereo audio sample; at 6:1 fixed compress ratio for aptX; at 4:1 fixed
+ compress ratio for aptX HD.
+ .
+ This package contains the simple openaptxenc and openaptxdec utilities.
 
 Package: pulseaudio
 Version: 1:14.2.99-1
